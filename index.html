@@ -3,56 +3,69 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>TaskHub | Free Online Tools</title>
-  <meta name="description" content="TaskHub - your hub for quick, smart, and useful online tools.">
-  <link rel="stylesheet" href="css/style.css">
-
-  <!-- AdSense (add your ID later) -->
-  <!-- <script data-ad-client="ca-pub-XXXX" async
-    src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> -->
+  <title>TaskHub | Online Tools Suite</title>
+  <meta name="description" content="TaskHub — simple, fast, and free online tools like file converter, ZIP extractor, CSV cleaner, and more.">
+  <link rel="stylesheet" href="./css/style.css" />
 </head>
+
 <body>
-  <header>
-    <h1>⚙️ TaskHub</h1>
-    <p id="tagline">Fast, simple, and useful tools — all in one place.</p>
-    <div class="lang-btns">
-      <button onclick="setLang('en')">English</button>
-      <button onclick="setLang('fa')">فارسی</button>
-    </div>
+  <!-- 🔝 Navigation -->
+  <header class="navbar">
+    <a href="./index.html" class="brand">⚙️ TaskHub</a>
+    <nav>
+      <a href="./index.html">Home</a>
+      <a href="./privacy.html">Privacy</a>
+      <a href="#">About</a>
+    </nav>
   </header>
 
-  <main id="content">
-    <!-- English section -->
-    <section id="en">
-      <div class="tool-grid">
-        <a href="tools/file-converter.html" class="tool-card">🧾 File Converter</a>
-        <a href="tools/zip-unzip.html" class="tool-card">📦 ZIP / Unzip</a>
-        <a href="tools/csv-cleaner.html" class="tool-card">📊 CSV Cleaner</a>
-        <a href="tools/password-generator.html" class="tool-card">🔐 Password Generator</a>
-        <a href="tools/url-shortener.html" class="tool-card">🌐 URL Shortener</a>
-      </div>
-    </section>
+  <!-- 🧾 Header Section -->
+  <section class="tool-header" style="padding-top:3rem;">
+    <img src="./assets/file-icon.svg" alt="TaskHub Icon" class="tool-icon">
+    <div>
+      <h1>TaskHub</h1>
+      <p class="subtitle">Fast, simple, and useful tools — all in one place.</p>
+    </div>
+  </section>
 
-    <!-- Farsi section -->
-    <section id="fa" dir="rtl" style="display:none;">
-      <div class="tool-grid">
-        <a href="tools/file-converter.html" class="tool-card">🧾 مبدل فایل</a>
-        <a href="tools/zip-unzip.html" class="tool-card">📦 فشرده‌سازی / استخراج فایل</a>
-        <a href="tools/csv-cleaner.html" class="tool-card">📊 پاکسازی فایل CSV</a>
-        <a href="tools/password-generator.html" class="tool-card">🔐 تولید رمز عبور</a>
-        <a href="tools/url-shortener.html" class="tool-card">🌐 کوتاه‌کننده لینک</a>
-      </div>
-    </section>
+  <!-- 🌐 Language Switch -->
+  <div class="lang-btns" style="text-align:center;">
+    <button onclick="setLang('en')">English</button>
+    <button onclick="setLang('fa')">فارسی</button>
+  </div>
+
+  <!-- 🌎 English Section -->
+  <main id="en">
+    <div class="tool-grid">
+      <a href="./tools/file-converter.html" class="tool-card">🧾 File Converter</a>
+      <a href="./tools/zip-unzip.html" class="tool-card">📦 ZIP / Unzip</a>
+      <a href="./tools/csv-cleaner.html" class="tool-card">📊 CSV Cleaner</a>
+      <a href="./tools/password-generator.html" class="tool-card">🔐 Password Generator</a>
+      <a href="./tools/url-shortener.html" class="tool-card">🌐 URL Shortener</a>
+    </div>
   </main>
 
+  <!-- 🇮🇷 Farsi Section -->
+  <main id="fa" dir="rtl" style="display:none;">
+    <div class="tool-grid">
+      <a href="./tools/file-converter.html" class="tool-card">🧾 تبدیل فایل</a>
+      <a href="./tools/zip-unzip.html" class="tool-card">📦 فشرده‌سازی / استخراج</a>
+      <a href="./tools/csv-cleaner.html" class="tool-card">📊 پاکسازی داده‌ها</a>
+      <a href="./tools/password-generator.html" class="tool-card">🔐 ساخت رمز عبور</a>
+      <a href="./tools/url-shortener.html" class="tool-card">🌐 کوتاه‌کننده لینک</a>
+    </div>
+  </main>
+
+  <!-- 🧾 Footer -->
   <footer>
-    <p><a href="privacy.html">Privacy Policy</a>  |  © 2025 TaskHub</p>
+    <p><a href="./privacy.html">Privacy Policy</a> | © 2025 TaskHub</p>
   </footer>
 
+  <!-- ⚙️ Script -->
   <script>
-    function setLang(lang){
-      document.getElementById('en').style.display = (lang==='en')?'block':'none';
-      document.getElementById('fa').style.display = (lang==='fa')?'block':'none';
+    function setLang(lang) {
+      document.getElementById('en').style.display = (lang === 'en') ? 'block' : 'none';
+      document.getElementById('fa').style.display = (lang === 'fa') ? 'block' : 'none';
     }
   </script>
 </body>
