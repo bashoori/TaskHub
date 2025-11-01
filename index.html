@@ -13,8 +13,8 @@
   <!-- 🧭 Navbar -->
   <header class="navbar">
     <div class="nav-left">
-      <img src="./assets/taskhub-logo.png" alt="TaskHub Logo" class="nav-logo">
-      <span class="brand">TaskHub</span>
+      <img src="./assets/taskhub-logo.png" alt="TaskHub Logo" class="nav-logo" width="36" height="36">
+      <a href="./index.html" class="brand">TaskHub</a>
     </div>
     <nav>
       <a href="./index.html" class="active">Home</a>
@@ -26,8 +26,15 @@
   <!-- 🌅 Hero Section -->
   <section class="hero">
     <div class="hero-content">
-      <h1>All your essential tools in one place ⚙️</h1>
+      <h1>All your Essential Tools in one place ⚙️</h1>
       <p>Convert files, compress data, clean spreadsheets, and more — instantly, securely, and for free.</p>
+
+      <!-- ✨ Typing animation tagline -->
+      <div class="typing-tagline">
+        <span id="typing-text"></span>
+        <span class="cursor">|</span>
+      </div>
+
       <div class="lang-btns">
         <button onclick="setLang('en')">English</button>
         <button onclick="setLang('fa')">فارسی</button>
@@ -35,29 +42,29 @@
     </div>
   </section>
 
-  <!-- 🧰 Tool Grid -->
+  <!-- 🧰 English Tools -->
   <main id="en">
     <h2 class="section-title">Our Free Tools</h2>
     <div class="tool-grid">
       <a href="./tools/file-converter.html" class="tool-card">
-        <img src="./assets/file-icon.svg" width="28"> File Converter
+        <img src="./assets/file-icon.svg" width="28" alt="File Converter Icon"> File Converter
       </a>
       <a href="./tools/zip-unzip.html" class="tool-card">
-        <img src="./assets/zip-icon.svg" width="28"> ZIP / Unzip
+        <img src="./assets/zip-icon.svg" width="28" alt="ZIP Unzip Icon"> ZIP / Unzip
       </a>
       <a href="./tools/csv-cleaner.html" class="tool-card">
-        <img src="./assets/csv-icon.svg" width="28"> CSV Cleaner
+        <img src="./assets/csv-icon.svg" width="28" alt="CSV Cleaner Icon"> CSV Cleaner
       </a>
       <a href="./tools/password-generator.html" class="tool-card">
-        <img src="./assets/password-icon.svg" width="28"> Password Generator
+        <img src="./assets/password-icon.svg" width="28" alt="Password Generator Icon"> Password Generator
       </a>
       <a href="./tools/url-shortener.html" class="tool-card">
-        <img src="./assets/link-icon.svg" width="28"> URL Shortener
+        <img src="./assets/link-icon.svg" width="28" alt="URL Shortener Icon"> URL Shortener
       </a>
     </div>
   </main>
 
-  <!-- 🇮🇷 Persian Section -->
+  <!-- 🇮🇷 Persian Tools -->
   <main id="fa" dir="rtl" style="display:none;">
     <h2 class="section-title">ابزارهای رایگان ما</h2>
     <div class="tool-grid">
@@ -74,14 +81,43 @@
 
   <!-- 🧭 Footer -->
   <footer>
-    <p><a href="./privacy.html">Privacy Policy</a> | © 2025 TaskHub — Fast, Simple, Free Tools</p>
+    <p><a href="./privacy.html">Privacy Policy</a> | © 2025 <strong>TaskHub</strong> — Fast, Simple, Free Tools</p>
   </footer>
 
+  <!-- 🌐 Language Switch -->
   <script>
     function setLang(lang) {
       document.getElementById('en').style.display = (lang === 'en') ? 'block' : 'none';
       document.getElementById('fa').style.display = (lang === 'fa') ? 'block' : 'none';
+      document.body.dir = (lang === 'fa') ? 'rtl' : 'ltr';
     }
+  </script>
+
+  <!-- ✨ Typing Animation Script -->
+  <script>
+    const words = ["Convert 📄", "Clean 🧹", "Compress 📦", "Create 🔧", "Share 🌐"];
+    let i = 0, j = 0, isDeleting = false;
+    const typingSpeed = 120, deletingSpeed = 60, delayBetweenWords = 1000;
+
+    function type() {
+      const typingText = document.getElementById("typing-text");
+      const currentWord = words[i];
+      if (!isDeleting && j <= currentWord.length) {
+        typingText.textContent = currentWord.substring(0, j++);
+        setTimeout(type, typingSpeed);
+      } else if (isDeleting && j >= 0) {
+        typingText.textContent = currentWord.substring(0, j--);
+        setTimeout(type, deletingSpeed);
+      } else if (!isDeleting && j === currentWord.length) {
+        isDeleting = true;
+        setTimeout(type, delayBetweenWords);
+      } else {
+        isDeleting = false;
+        i = (i + 1) % words.length;
+        setTimeout(type, 200);
+      }
+    }
+    document.addEventListener("DOMContentLoaded", type);
   </script>
 </body>
 </html>
