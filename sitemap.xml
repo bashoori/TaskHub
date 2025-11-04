@@ -5,11 +5,15 @@
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://bitadigitalhub.com/tools/zip-unzip.html</loc>
+    <loc>https://bitadigitalhub.com/about</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://bitadigitalhub.com/tools/file-converter.html</loc>
-    <priority>0.8</priority>
+    <loc>https://bitadigitalhub.com/contact</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://bitadigitalhub.com/privacy</loc>
+    <priority>0.6</priority>
   </url>
 </urlset>

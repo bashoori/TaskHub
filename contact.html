@@ -21,26 +21,22 @@
       box-shadow: 0 4px 16px rgba(0,0,0,0.05);
       padding: 2rem;
     }
-
     .contact-container h1 {
       text-align: center;
       font-size: 1.6rem;
       margin-bottom: 1rem;
     }
-
     .contact-container p {
       text-align: center;
       color: #555;
       margin-bottom: 2rem;
     }
-
     form label {
       display: block;
       margin: 0.5rem 0 0.2rem;
       font-weight: 600;
       color: #333;
     }
-
     form input, form textarea {
       width: 100%;
       padding: 0.8rem;
@@ -50,12 +46,10 @@
       font-family: var(--font-main);
       background: #fafafa;
     }
-
     form textarea {
       min-height: 140px;
       resize: vertical;
     }
-
     button[type="submit"] {
       display: block;
       margin: 1.5rem auto 0;
@@ -69,11 +63,9 @@
       cursor: pointer;
       box-shadow: 0 3px 10px rgba(0,0,0,0.1);
     }
-
     button[type="submit"]:hover {
       background: var(--primary-dark);
     }
-
     .status {
       text-align: center;
       margin-top: 1rem;
@@ -92,16 +84,21 @@
     <nav>
       <a href="./index.html">Home</a>
       <a href="./privacy.html">Privacy</a>
-      
     </nav>
   </header>
 
   <!-- 📬 Contact Form -->
   <section class="contact-container">
     <h1>Contact Us</h1>
-    <p>Have a question, suggestion, or business inquiry? Send us a message below.</p>
+    <p>Have a question, suggestion, or business inquiry? Send us a message below — we’ll get back to you soon!</p>
 
-    <form id="contactForm">
+    <!-- ✅ Updated FormSubmit endpoint -->
+    <form id="contactForm" action="https://formsubmit.co/contact@bitadigitalhub.com" method="POST">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_subject" value="New message from TaskHub contact form">
+      <input type="hidden" name="_template" value="table">
+      <input type="hidden" name="_next" value="https://bitadigitalhub.com/thankyou.html">
+
       <label for="name">Your Name</label>
       <input type="text" id="name" name="name" placeholder="e.g. Alex Johnson" required />
 
@@ -112,43 +109,29 @@
       <textarea id="message" name="message" placeholder="Write your message here..." required></textarea>
 
       <button type="submit">Send Message</button>
-      <div id="status" class="status"></div>
     </form>
+
+    <div id="status" class="status"></div>
   </section>
 
   <!-- 🧭 Footer -->
   <footer>
     <p>
       <a href="./privacy.html">Privacy Policy</a> |
+      📩 <a href="mailto:contact@bitadigitalhub.com">contact@bitadigitalhub.com</a> |
       © 2025 <strong>TaskHub</strong> — Fast, Simple, Free Tools
     </p>
   </footer>
 
   <script>
-    // Simple form submission using FormSubmit service
-    document.getElementById("contactForm").addEventListener("submit", async (e) => {
-      e.preventDefault();
-      const status = document.getElementById("status");
-      status.textContent = "⏳ Sending message...";
-
-      const data = {
-        name: e.target.name.value,
-        email: e.target.email.value,
-        message: e.target.message.value,
-      };
-
-      try {
-        await fetch("https://formsubmit.co/ajax/bitadigitalacademy@gmail.com", {
-          method: "POST",
-          headers: { "Content-Type": "application/json", "Accept": "application/json" },
-          body: JSON.stringify(data),
-        });
-
-        status.textContent = "✅ Message sent successfully!";
-        e.target.reset();
-      } catch (err) {
-        status.textContent = "❌ Failed to send. Please try again later.";
-      }
+    // Simple UX message after submission (no backend)
+    const form = document.getElementById("contactForm");
+    const status = document.getElementById("status");
+    form.addEventListener("submit", () => {
+      status.textContent = "⏳ Sending your message...";
+      setTimeout(() => {
+        status.textContent = "✅ Thank you! Your message has been sent successfully.";
+      }, 1500);
     });
   </script>
 </body>
