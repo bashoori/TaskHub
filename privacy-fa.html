@@ -1,13 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fa" dir="rtl">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Privacy Policy | Bita Digital Hub</title>
-  <meta name="description" content="Learn how Bita Digital Hub collects, uses, and protects your data. We value your privacy and ensure a secure, ad-supported experience.">
-  <meta name="keywords" content="Bita Digital Hub privacy policy, data protection, cookies, Google Analytics, AdSense, Vancouver, online tools">
-  <link rel="stylesheet" href="./css/style.css" />
-  <link rel="icon" type="image/png" href="./assets/taskhub-logo.png" />
+  <title>تماس با ما | Bita Digital Hub</title>
+  <meta name="description" content="از طریق فرم تماس یا ایمیل با Bita Digital Hub در ارتباط باشید. پیشنهادها، همکاری یا سوالات خود را برای ما بفرستید.">
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="icon" type="image/png" href="../assets/taskhub-logo.png" />
 
   <!-- 📈 Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-YHKWTPXDHC"></script>
@@ -22,49 +21,76 @@
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3215014361489762"
      crossorigin="anonymous"></script>
 
-  <!-- 🧭 Open Graph -->
-  <meta property="og:title" content="Privacy Policy | Bita Digital Hub">
-  <meta property="og:description" content="We protect your privacy. Learn how we use data responsibly at Bita Digital Hub.">
-  <meta property="og:image" content="https://bitadigitalhub.com/assets/taskhub-logo.png">
-  <meta property="og:url" content="https://bitadigitalhub.com/privacy.html">
-  <meta name="twitter:card" content="summary_large_image">
-
   <style>
-    main {
-      max-width: 900px;
+    body {
+      font-family: "Vazirmatn", "IRANSans", sans-serif;
+      background: #f5f7fa;
+    }
+    .contact-container {
+      max-width: 800px;
       margin: 3rem auto;
-      padding: 2rem;
       background: #fff;
       border-radius: 12px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-      line-height: 1.8;
-      color: #333;
-    }
-    h1 {
-      font-size: 1.8rem;
-      margin-bottom: 0.5rem;
-      color: var(--primary, #0078d7);
-    }
-    h2 {
-      font-size: 1.3rem;
-      margin-top: 1.5rem;
-      color: #222;
-    }
-    ul { padding-left: 1.2rem; }
-    li { margin-bottom: 0.4rem; }
-    section[dir="rtl"] {
-      margin-top: 3rem;
-      padding-top: 2rem;
-      border-top: 2px dashed #eee;
-      font-family: "Vazirmatn", sans-serif;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.05);
+      padding: 2.5rem;
+      text-align: right;
       line-height: 1.9;
     }
-    section[dir="rtl"] h1, section[dir="rtl"] h2 {
-      text-align: right;
-      color: #0078d7;
+    .contact-container h1 {
+      text-align: center;
+      font-size: 2rem;
+      color: var(--primary, #0078d7);
+      margin-bottom: 1rem;
     }
-    section[dir="rtl"] p, section[dir="rtl"] li {
-      text-align: right;
+    .contact-container p {
+      font-size: 1rem;
+      color: #555;
+      margin-bottom: 1rem;
+    }
+    form {
+      margin-top: 1.5rem;
+    }
+    label {
+      display: block;
+      margin-bottom: .3rem;
+      color: #333;
+      font-weight: 500;
+    }
+    input, textarea {
+      width: 100%;
+      padding: .8rem;
+      margin-bottom: 1rem;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      background: #fafafa;
+      font-family: inherit;
+      font-size: 1rem;
+    }
+    textarea { resize: vertical; min-height: 120px; }
+    button {
+      background: var(--primary, #0078d7);
+      color: #fff;
+      border: none;
+      padding: 0.8rem 1.5rem;
+      border-radius: 8px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+    button:hover { background: #005fa3; }
+    .lang-switch {
+      text-align: center;
+      margin-top: 1rem;
+    }
+    .lang-switch button {
+      padding: .5rem 1rem;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      background: #fff;
+      cursor: pointer;
+      margin: 0 .3rem;
+    }
+    .lang-switch button:hover {
+      background: #f6f6f6;
     }
   </style>
 </head>
@@ -73,63 +99,51 @@
   <!-- 🧭 Navbar -->
   <header class="navbar">
     <div class="nav-left">
-      <img src="./assets/taskhub-logo.svg" alt="TaskHub Logo" class="nav-logo" width="36" height="36" />
-      <a href="index.html" class="brand">Bita Digital Hub</a>
+      <img src="../assets/taskhub-logo.svg" alt="TaskHub Logo" class="nav-logo" width="36" height="36" />
+      <a href="../index.html" class="brand">Bita Digital Hub</a>
     </div>
     <nav>
-      <a href="index.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="#">Privacy</a>
+      <a href="../index.html">خانه</a>
+      <a href="../about-fa.html">درباره ما</a>
+      <a href="../privacy.html">حریم خصوصی</a>
       <a href="mailto:contact@bitadigitalhub.com">📩 contact@bitadigitalhub.com</a>
     </nav>
   </header>
 
-  <!-- 🌐 Language Switch -->
-  <div style="text-align:center;margin:1.2rem 0;">
-    <button onclick="window.location.href='./privacy.html'" style="padding:0.5rem 1rem;border:1px solid #ddd;border-radius:6px;cursor:pointer;background:#fff;">English</button>
-    <button onclick="window.location.href='./privacy-fa.html'" style="padding:0.5rem 1rem;border:1px solid #ddd;border-radius:6px;cursor:pointer;background:#fff;">فارسی</button>
+  <!-- 🌍 Language Switch -->
+  <div class="lang-switch">
+    <button onclick="window.location.href='./contact.html'">English</button>
+    <button onclick="window.location.href='./contact-fa.html'">فارسی</button>
   </div>
 
-    <!-- 🌍 Farsi Version -->
-    <section dir="rtl">
-      <h1>سیاست حفظ حریم خصوصی</h1>
-      <p><em>آخرین بروزرسانی: اکتبر ۲۰۲۵</em></p>
-      <p>به <strong>Bita Digital Hub</strong> خوش آمدید. حفظ حریم خصوصی شما برای ما مهم است. در این صفحه توضیح داده شده که چه اطلاعاتی جمع‌آوری می‌شود و چگونه از آن‌ها استفاده می‌کنیم.</p>
+  <!-- ✉️ Contact Section -->
+  <section class="contact-container">
+    <h1>تماس با ما</h1>
+    <p>خوشحال می‌شویم صدای شما را بشنویم!  
+      اگر پیشنهاد، انتقاد، یا ایده‌ای برای ابزارهای جدید دارید، فرم زیر را پر کنید یا مستقیماً ایمیل بزنید:</p>
+    <p><strong>📧 ایمیل:</strong> <a href="mailto:contact@bitadigitalhub.com">contact@bitadigitalhub.com</a></p>
 
-      <h2>۱. اطلاعاتی که جمع‌آوری می‌کنیم</h2>
-      <ul>
-        <li>فایل‌های شما به‌صورت دائمی ذخیره نمی‌شوند. تمام پردازش‌ها در مرورگر شما انجام می‌شوند.</li>
-        <li>ممکن است داده‌های غیرشخصی مانند نوع مرورگر و آمار کلی استفاده برای بهبود خدمات جمع‌آوری شود.</li>
-      </ul>
+    <form action="https://formsubmit.co/contact@bitadigitalhub.com" method="POST">
+      <input type="hidden" name="_subject" value="پیام جدید از فرم تماس Bita Digital Hub">
+      <label for="name">نام:</label>
+      <input type="text" id="name" name="name" required placeholder="نام خود را وارد کنید">
 
-      <h2>۲. نحوه استفاده از اطلاعات</h2>
-      <ul>
-        <li>برای بهبود تجربه کاربر و عملکرد سایت.</li>
-        <li>برای نمایش تبلیغات مرتبط از طریق Google AdSense.</li>
-      </ul>
+      <label for="email">ایمیل:</label>
+      <input type="email" id="email" name="email" required placeholder="ایمیل خود را وارد کنید">
 
-      <h2>۳. کوکی‌ها</h2>
-      <p>ممکن است از کوکی‌ها برای تحلیل بازدید و تبلیغات استفاده شود. شما می‌توانید کوکی‌ها را از تنظیمات مرورگر خود غیرفعال کنید.</p>
+      <label for="message">پیام:</label>
+      <textarea id="message" name="message" required placeholder="پیام خود را بنویسید..."></textarea>
 
-      <h2>۴. خدمات شخص ثالث</h2>
-      <p>وب‌سایت ما از Google AdSense و Google Analytics استفاده می‌کند که داده‌های ناشناس ترافیک را برای تبلیغات و تحلیل جمع‌آوری می‌کنند.</p>
+      <button type="submit">ارسال پیام</button>
+    </form>
+  </section>
 
-      <h2>۵. امنیت داده‌ها</h2>
-      <p>اطلاعات شما خصوصی باقی می‌مانند. ما هیچ داده‌ای را به اشتراک نمی‌گذاریم یا نمی‌فروشیم.</p>
-
-      <h2>۶. تماس با ما</h2>
-      <p>در صورت وجود هرگونه سؤال درباره این سیاست، با ما تماس بگیرید:
-        <a href="mailto:contact@bitadigitalhub.com">contact@bitadigitalhub.com</a>
-      </p>
-    </section>
-  </main>
-
-  <!-- 📢 AdSense -->
+  <!-- 🧱 AdSense -->
   <div style="text-align:center;margin:2rem auto;">
     <ins class="adsbygoogle"
          style="display:block; text-align:center;"
          data-ad-client="ca-pub-3215014361489762"
-         data-ad-slot="6666666666"
+         data-ad-slot="7777777777"
          data-ad-format="auto"
          data-full-width-responsive="true"></ins>
     <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
@@ -138,8 +152,8 @@
   <!-- 🧭 Footer -->
   <footer>
     <p>
-      © 2025 <strong>Bita Digital Hub</strong> | Built for simplicity & trust.<br>
-      <a href="privacy.html">Privacy Policy</a> · <a href="about.html">About</a>
+      <a href="../privacy.html">سیاست حریم خصوصی</a> |
+      © ۲۰۲۵ <strong>Bita Digital Hub</strong> — ابزارهای سریع، ساده و رایگان
     </p>
   </footer>
 </body>
