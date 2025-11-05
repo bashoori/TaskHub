@@ -1,65 +1,268 @@
-/* ======================================
-   ✨ UPDATED TOOL CARD DESIGN (FINAL)
-   Light, Clean, and Balanced for 3-Column Grid
-   ====================================== */
+/* -----------------------------
+   ⚙️ Bita Digital Hub CSS
+   Clean | Light | Responsive
+   ----------------------------- */
+
+/* 🎨 Color & Font Variables */
+:root {
+  --primary: #2563eb;
+  --primary-dark: #1e40af;
+  --background: #f9fafb;
+  --text: #111827;
+  --shadow: rgba(0, 0, 0, 0.05);
+  --border: #e5e7eb;
+  --radius: 12px;
+  --font-main: system-ui, sans-serif;
+  --font-fa: "Vazirmatn", "IRANSans", sans-serif;
+}
+
+/* 🔄 Global Reset */
+* {
+  box-sizing: border-box;
+  transition: all 0.25s ease;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-main);
+  background: var(--background);
+  color: var(--text);
+}
+
+/* 🇮🇷 RTL Support */
+[dir="rtl"] {
+  font-family: var(--font-fa);
+}
+
+/* 🔝 Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background: #fff;
+  box-shadow: 0 2px 6px var(--shadow);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.navbar .brand {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--primary);
+  text-decoration: none;
+}
+
+.navbar nav a {
+  margin-left: 1.2rem;
+  color: #444;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.navbar nav a:hover,
+.navbar nav a.active {
+  color: var(--primary);
+}
+
+/* 🌄 Hero */
+.hero {
+  text-align: center;
+  padding: 5rem 1rem 3rem;
+  background: linear-gradient(180deg, #f8fbff 0%, #f1f5f9 100%);
+}
+
+.hero h1 {
+  font-size: 2.2rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+}
+
+.hero p {
+  color: #444;
+  font-size: 1.1rem;
+  max-width: 700px;
+  margin: 0 auto 1.5rem;
+  line-height: 1.6;
+}
+
+.typing-tagline {
+  font-size: 1.2rem;
+  color: var(--primary);
+  font-weight: 600;
+  min-height: 1.5em;
+  margin-bottom: 1.5rem;
+}
+
+.cursor {
+  display: inline-block;
+  width: 2px;
+  height: 1.2em;
+  background: var(--primary);
+  animation: blink 0.7s infinite;
+}
+
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+/* 🌐 Language Buttons */
+.lang-btns button {
+  margin: 0.5rem;
+  padding: 0.6rem 1.2rem;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  cursor: pointer;
+  background: #fff;
+  font-weight: 500;
+}
+
+.lang-btns button:hover {
+  background: #f2f2f2;
+}
+
+/* 🧩 Tool Grid */
+.section-title {
+  text-align: center;
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin: 2rem 0 1rem;
+}
 
 .tool-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 1.8rem;
-  padding: 2.5rem;
   max-width: 1100px;
   margin: auto;
+  padding: 2rem;
 }
 
 .tool-card {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  background: #f3f4f6; /* light gray */
-  border: 1px solid #e5e7eb;
-  border-radius: 16px;
-  padding: 1.8rem 1.5rem;
+  display: block;
+  background: linear-gradient(145deg, #f9fafb, #edf2f7);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.6rem 1.3rem;
   text-decoration: none;
-  color: #1f2937; /* dark gray text */
-  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.04);
-  transition: all 0.25s ease;
-  height: 180px; /* consistent height for 3-card rows */
-  text-align: left;
+  color: #1e293b;
+  box-shadow: 0 3px 10px var(--shadow);
 }
 
 .tool-card:hover {
-  background: #f9fafb;
   transform: translateY(-5px);
-  box-shadow: 0 6px 18px rgba(0, 120, 215, 0.12);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
 }
 
-.tool-card strong {
-  font-size: 1.15rem;
-  color: #111827;
+.tool-title {
   font-weight: 700;
-  margin-bottom: 0.4rem;
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
 }
 
-.tool-card p {
+.tool-desc {
+  font-size: 0.9rem;
   color: #475569;
-  font-size: 0.95rem;
   line-height: 1.5;
 }
 
-/* Responsive Adjustments */
-@media (max-width: 700px) {
-  .tool-card {
-    height: auto;
-    text-align: center;
-    padding: 1.5rem 1.2rem;
-  }
+/* 💌 Contact Form */
+.contact-section {
+  max-width: 720px;
+  margin: 3rem auto;
+  padding: 2.5rem;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: 0 8px 24px var(--shadow);
+}
 
-  .tool-card strong {
-    font-size: 1rem;
-  }
+.contact-section h2 {
+  text-align: center;
+  color: var(--primary);
+  margin-bottom: 1rem;
+  font-size: 1.6rem;
+}
 
-  .tool-card p {
-    font-size: 0.9rem;
+.contact-section p {
+  text-align: center;
+  color: #475569;
+  margin-bottom: 1.8rem;
+}
+
+.contact-section form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.contact-section input,
+.contact-section textarea {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  background: #f9fafb;
+  font-size: 1rem;
+}
+
+.contact-section input:focus,
+.contact-section textarea:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 6px rgba(37, 99, 235, 0.3);
+  outline: none;
+}
+
+.contact-section button {
+  background: linear-gradient(135deg, #3b82f6, #6366f1);
+  border: none;
+  color: white;
+  font-weight: 700;
+  padding: 0.9rem;
+  border-radius: 9999px;
+  cursor: pointer;
+}
+
+.contact-section button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 14px rgba(59, 130, 246, 0.4);
+}
+
+/* 🦶 Footer */
+footer {
+  text-align: center;
+  padding: 2rem 1rem;
+  background: #f1f5f9;
+  color: #475569;
+  border-top: 1px solid var(--border);
+}
+
+footer a {
+  color: var(--primary);
+  text-decoration: none;
+  margin: 0 0.3rem;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
+
+footer strong {
+  color: #111827;
+}
+
+/* 📱 Responsive */
+@media (max-width: 600px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .hero {
+    padding: 3rem 1rem;
+  }
+  .tool-grid {
+    padding: 1rem;
   }
 }
