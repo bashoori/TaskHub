@@ -30,11 +30,6 @@
   <!-- AdSense -->
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3215014361489762"
      crossorigin="anonymous"></script>
-
-
-  <link rel="stylesheet" href="../css/style.css" />
-
-  
 </head>
 
 <body>
@@ -49,47 +44,66 @@
       <a href="./about.html">About</a>
       <a href="./privacy.html">Privacy</a>
       <a href="mailto:contact@bitadigitalhub.com">📩 contact@bitadigitalhub.com</a>
+      <span class="calendar-icon">📅</span>
     </nav>
   </header>
 
   <!-- 🌄 Hero -->
-  <section class="hero">
-    <div class="hero-content">
-      <h1>⚙️ All your Essential Tools in one place</h1>
-      <p>Convert files, compress data, clean spreadsheets, and more — instantly, securely, and free.</p>
-      <div class="typing-tagline">
-        <span id="typing-text"></span><span class="cursor">|</span>
-      </div>
-      <div class="lang-btns">
-        <button onclick="setLang('en')">English</button>
-        <button onclick="setLang('fa')">فارسی</button>
-      </div>
+  <section class="tool-header" style="text-align:center; padding:4rem 1rem 2rem;">
+    <h1>⚙️ All your Essential Tools in one place</h1>
+    <p>Convert files, compress data, clean spreadsheets, and more — instantly, securely, and free.</p>
+    <div class="typing-tagline" style="margin-top:1rem;">
+      <span id="typing-text"></span><span class="cursor">|</span>
+    </div>
+    <div class="lang-btns" style="margin-top:2rem;">
+      <button onclick="setLang('en')">English</button>
+      <button onclick="setLang('fa')">فارسی</button>
     </div>
   </section>
 
   <!-- 🧰 Tools -->
-  <main id="en">
-    <h2 class="section-title">Our Free Tools</h2>
+  <section class="tool-box" style="max-width:900px; margin:auto;">
+    <h2 class="section-title" style="text-align:center;">🧰 Our Free Tools</h2>
     <div class="tool-grid">
-      <a href="./tools/password-generator.html" class="tool-card"><div class="tool-title">🔐 Password Generator</div><div class="tool-desc">Generate strong, secure passwords instantly.</div></a>
-      <a href="./tools/url-shortener.html" class="tool-card"><div class="tool-title">🌐 URL Shortener</div><div class="tool-desc">Create short, trackable links for your campaigns.</div></a>
-      <a href="./tools/social-audit.html" class="tool-card"><div class="tool-title">🧠 Social Media Audit</div><div class="tool-desc">Analyze engagement, caption quality, and hashtags.</div></a>
-      <a href="./tools/ai-bio-generator.html" class="tool-card"><div class="tool-title">✨ AI Bio Generator</div><div class="tool-desc">Generate professional bios for Instagram, LinkedIn, and YouTube in seconds.</div></a>
-      <a href="./tools/ai-caption-generator.html" class="tool-card"><div class="tool-title">💬 AI Caption & Hashtag Generator</div><div class="tool-desc">Create catchy captions and viral hashtags powered by AI.</div></a>
+      <a href="./tools/password-generator.html" class="tool-card">
+        <div class="tool-title">🔐 Password Generator</div>
+        <div class="tool-desc">Generate strong, secure passwords instantly.</div>
+      </a>
+      <a href="./tools/url-shortener.html" class="tool-card">
+        <div class="tool-title">🌐 URL Shortener</div>
+        <div class="tool-desc">Create short, trackable links for your campaigns.</div>
+      </a>
+      <a href="./tools/social-audit.html" class="tool-card">
+        <div class="tool-title">🧠 Social Media Audit</div>
+        <div class="tool-desc">Analyze engagement, caption quality, and hashtags.</div>
+      </a>
+      <a href="./tools/ai-bio-generator.html" class="tool-card">
+        <div class="tool-title">✨ AI Bio Generator</div>
+        <div class="tool-desc">Generate professional bios for Instagram, LinkedIn, and YouTube in seconds.</div>
+      </a>
+      <a href="./tools/ai-caption-generator.html" class="tool-card">
+        <div class="tool-title">💬 AI Caption & Hashtag Generator</div>
+        <div class="tool-desc">Create catchy captions and viral hashtags powered by AI.</div>
+      </a>
+      <a href="./tools/file-converter.html" class="tool-card">
+        <div class="tool-title">📄 File Converter</div>
+        <div class="tool-desc">Convert between PDF, Word, Excel, and image files — secure and fast.</div>
+      </a>
+      <a href="./tools/csv-cleaner.html" class="tool-card">
+        <div class="tool-title">📊 CSV & Excel Cleaner</div>
+        <div class="tool-desc">Clean, merge, and deduplicate spreadsheet data online.</div>
+      </a>
     </div>
-  </main>
+  </section>
 
   <!-- 💬 Contact -->
-  <section id="contact-en" class="contact-section">
-    <h2>Contact Us</h2>
+  <section class="tool-box contact-section" style="max-width:700px; margin:auto; text-align:center;">
+    <h2>📬 Contact Us</h2>
     <p>Have feedback, ideas, or collaboration proposals? Send us a quick message below.</p>
     <form action="https://formsubmit.co/contact@bitadigitalhub.com" method="POST">
       <input type="hidden" name="_subject" value="New message from Bita Digital Hub">
-      <label>Name</label>
       <input type="text" name="name" placeholder="Your name" required />
-      <label>Email</label>
       <input type="email" name="email" placeholder="Your email" required />
-      <label>Message</label>
       <textarea name="message" placeholder="Write your message here..." required></textarea>
       <button type="submit">Send Message</button>
     </form>
@@ -97,17 +111,19 @@
 
   <!-- 🌙 Footer -->
   <footer class="site-footer">
-    <p><a href="./privacy.html">Privacy Policy</a> | © 2025 <strong>Bita Digital Hub</strong> — Smart, Simple, Free Tools</p>
-    <p>📩 <a href="mailto:contact@bitadigitalhub.com">contact@bitadigitalhub.com</a></p>
+    <p>
+      <a href="./privacy.html">Privacy Policy</a> |
+      © 2025 <strong>Bita Digital Hub</strong> — Smart, Simple, Free Tools<br>
+      📩 <a href="mailto:contact@bitadigitalhub.com">contact@bitadigitalhub.com</a>
+    </p>
   </footer>
 
   <!-- 🌐 Language Switch -->
   <script>
     function setLang(lang) {
-      document.getElementById('en').style.display = (lang === 'en') ? 'block' : 'none';
       document.body.dir = (lang === 'fa') ? 'rtl' : 'ltr';
-      const heroTitle = document.querySelector('.hero-content h1');
-      const heroDesc = document.querySelector('.hero-content p');
+      const heroTitle = document.querySelector('.tool-header h1');
+      const heroDesc = document.querySelector('.tool-header p');
       if (lang === 'fa') {
         heroTitle.textContent = '⚙️ همه ابزارهای ضروری شما در یک جا';
         heroDesc.textContent = 'فایل‌ها را تبدیل کنید، داده‌ها را فشرده کنید، جدول‌ها را تمیز کنید و خیلی کارهای دیگر — فوری، امن و رایگان.';
@@ -143,6 +159,5 @@
     }
     document.addEventListener("DOMContentLoaded", type);
   </script>
-
 </body>
 </html>
