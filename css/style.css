@@ -1,13 +1,12 @@
 /* =========================================================
-🌐 Bita Digital Hub – Unified Global Stylesheet
+🌐 Bita Digital Hub – Unified Global Stylesheet (Dark Blue Edition)
 Author: Bita Ashoori
-Purpose: Clean, modern, bilingual-ready layout for all pages
 ========================================================= */
 
 /* ---------- Root Theme Variables ---------- */
 :root {
-  --primary-blue: #6366f1;
-  --primary-cyan: #38bdf8;
+  --primary-blue: #1e3a8a;   /* Dark navy blue */
+  --primary-cyan: #1d4ed8;   /* Brighter hover blue */
   --text-dark: #0f172a;
   --text-mid: #475569;
   --text-light: #94a3b8;
@@ -17,7 +16,7 @@ Purpose: Clean, modern, bilingual-ready layout for all pages
   --footer-dark: #0f172a;
 }
 
-/* ---------- Base Reset ---------- */
+/* ---------- Reset ---------- */
 * {
   margin: 0;
   padding: 0;
@@ -39,19 +38,6 @@ a {
 
 a:hover {
   color: var(--primary-cyan);
-}
-
-img {
-  max-width: 100%;
-  display: block;
-}
-
-/* ---------- Containers ---------- */
-.container {
-  width: 90%;
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 2rem 0;
 }
 
 /* ---------- Navbar ---------- */
@@ -130,6 +116,38 @@ img {
   display: block;
 }
 
+/* ---------- Buttons ---------- */
+.btn-primary,
+.btn-secondary {
+  display: inline-block;
+  padding: 0.6rem 1.4rem;
+  border-radius: 1.5rem;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: all 0.25s ease;
+}
+
+.btn-primary {
+  background: var(--primary-blue);
+  color: var(--white);
+  border: none;
+}
+
+.btn-primary:hover {
+  background: var(--primary-cyan);
+}
+
+.btn-secondary {
+  border: 1px solid var(--primary-blue);
+  color: var(--primary-blue);
+  background: transparent;
+}
+
+.btn-secondary:hover {
+  background: var(--primary-blue);
+  color: var(--white);
+}
+
 /* ---------- Login Button ---------- */
 .btn-primary.get-started {
   background-color: var(--primary-blue);
@@ -138,12 +156,11 @@ img {
   padding: 0.45rem 1.2rem;
   border-radius: 45px;
   font-size: 0.95rem;
-  transition: all 0.25s ease;
   margin-left: 1rem;
 }
 
 .btn-primary.get-started:hover {
-  background-color: #4f46e5;
+  background-color: var(--primary-cyan);
 }
 
 /* ---------- 🌐 Language Dropdown ---------- */
@@ -166,14 +183,13 @@ img {
   transition: all 0.2s ease;
 }
 
+.lang-toggle:hover {
+  background: #f1f5f9;
+}
+
 .lang-toggle img {
   width: 18px;
   height: 12px;
-  border-radius: 2px;
-}
-
-.lang-toggle:hover {
-  background: #f1f5f9;
 }
 
 .lang-menu {
@@ -194,10 +210,6 @@ img {
   animation: fadeIn 0.2s ease-in-out;
 }
 
-.lang-menu li {
-  list-style: none;
-}
-
 .lang-menu a {
   display: flex;
   align-items: center;
@@ -205,12 +217,6 @@ img {
   padding: 0.6rem 1rem;
   color: var(--text-dark);
   font-weight: 500;
-  transition: background 0.2s ease, color 0.2s ease;
-}
-
-.lang-menu a img {
-  width: 18px;
-  height: 12px;
 }
 
 .lang-menu a:hover {
@@ -222,7 +228,7 @@ img {
 .hero-section {
   text-align: center;
   padding: 6rem 1.5rem 5rem;
-  background: linear-gradient(to bottom right, #f8fafc, #eef2ff);
+  background: linear-gradient(to bottom right, #f8fafc, #e0e7ff);
 }
 
 .hero-badge {
@@ -232,35 +238,27 @@ img {
   padding: 0.4rem 1rem;
   font-size: 0.95rem;
   font-weight: 500;
-  color: #0f172a;
-  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.08);
+  color: var(--primary-blue);
+  box-shadow: 0 1px 6px rgba(0,0,0,0.08);
   margin-bottom: 1rem;
 }
 
 .hero-title {
-  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-size: clamp(2.5rem, 6vw, 4rem);
   font-weight: 800;
-  color: #0f172a;
-  letter-spacing: -0.02em;
+  color: var(--text-dark);
   margin: 0.6rem 0 1rem;
 }
 
 .hero-subtitle {
-  font-size: 1.2rem;
-  color: #475569;
+  font-size: 1.15rem;
+  color: var(--text-mid);
   max-width: 800px;
   margin: 0 auto 2rem;
   line-height: 1.7;
 }
 
-.hero-buttons {
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
-  flex-wrap: wrap;
-}
-
-/* ---------- Cards / Grid ---------- */
+/* ---------- Grid Cards ---------- */
 .tool-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -278,12 +276,12 @@ img {
 
 .tool-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 8px 20px rgba(30, 58, 138, 0.15);
 }
 
 .tool-card h3 {
   margin-bottom: 0.5rem;
-  color: var(--text-dark);
+  color: var(--primary-blue);
   font-weight: 700;
 }
 
@@ -296,7 +294,7 @@ img {
   text-align: center;
   font-size: 1.6rem;
   font-weight: 700;
-  color: var(--text-dark);
+  color: var(--primary-blue);
   margin-bottom: 1rem;
 }
 
@@ -308,7 +306,8 @@ img {
 
 .contact-section h2 {
   margin-bottom: 0.5rem;
-  font-size: 1.7rem;
+  font-size: 1.8rem;
+  color: var(--primary-blue);
 }
 
 .contact-section p {
@@ -322,47 +321,14 @@ img {
   color: #f1f5f9;
   padding: 3rem 1.5rem;
   margin-top: 3rem;
-  font-size: 0.95rem;
-}
-
-.footer-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 2rem;
-  max-width: 1100px;
-  margin: 0 auto 2rem auto;
 }
 
 .footer h3,
 .footer h4 {
   color: #fff;
-  margin-bottom: 1rem;
-}
-
-.footer p,
-.footer a,
-.footer li {
-  color: #cbd5e1;
-  list-style: none;
-  margin-bottom: 0.6rem;
-  display: block;
 }
 
 .footer a:hover {
-  color: var(--primary-cyan);
-}
-
-.footer-logo p {
-  margin: 1rem 0;
-}
-
-.footer .social-links a {
-  display: inline-block;
-  margin-right: 0.8rem;
-  color: #e2e8f0;
-}
-
-.footer .social-links a:hover {
   color: var(--primary-cyan);
 }
 
@@ -374,15 +340,6 @@ img {
   color: #94a3b8;
 }
 
-.footer-bottom a {
-  color: #94a3b8;
-  margin: 0 0.5rem;
-}
-
-.footer-bottom a:hover {
-  color: var(--primary-cyan);
-}
-
 /* ---------- Animations ---------- */
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(-5px); }
@@ -391,7 +348,7 @@ img {
 
 /* ---------- Responsive ---------- */
 @media (max-width: 768px) {
-  nav a,
+  .nav-links a,
   .dropbtn {
     margin-left: 1rem;
   }
@@ -399,14 +356,5 @@ img {
   .footer-container {
     grid-template-columns: 1fr;
     text-align: center;
-  }
-
-  .hero-title {
-    font-size: 2rem;
-  }
-
-  .lang-menu {
-    right: auto;
-    left: 0;
   }
 }
