@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>About | Bita Digital Hub</title>
+  <title>Tools | Bita Digital Hub</title>
   <link rel="stylesheet" href="css/style.css" />
   <link rel="icon" type="image/png" href="assets/taskhub-logo.png" />
 </head>
@@ -18,9 +18,10 @@
 
     <nav class="nav-links">
       <a href="index-en.html">Home</a>
-      <a href="about.html" class="active">About</a>
+      <a href="about.html">About</a>
       <a href="services.html">Services</a>
       <a href="projects.html">Projects</a>
+      <a href="tools.html" class="active">Tools</a>
       <a href="contact.html">Contact</a>
     </nav>
 
@@ -39,30 +40,46 @@
     </div>
   </header>
 
-  <!-- 🧠 About Section -->
-  <main class="container" style="max-width: 1000px; padding: 3rem 1rem;">
-    <h1 style="font-size:2rem; font-weight:800; color:#1e3a8a; margin-bottom:1rem;">About Bita Digital Hub</h1>
-
-    <p style="font-size:1.1rem; color:#475569; margin-bottom:2rem;">
-      Blending data engineering, digital marketing, and automation into one practical space.
+  <!-- 🧰 Tools Section -->
+  <main class="container" style="max-width:1100px; padding:3rem 1rem;">
+    <h1 style="font-size:2rem; font-weight:800; color:#1e3a8a; text-align:center; margin-bottom:0.5rem;">
+      Our Tools
+    </h1>
+    <p style="text-align:center; color:#475569; margin-bottom:2.5rem;">
+      Explore free online tools built for creators, marketers, and data professionals — designed to make your work smarter.
     </p>
 
-    <p style="margin-bottom:1.2rem; color:#334155;">
-      <strong>Bita Digital Hub</strong> started as a place to share tools, templates, and projects built for real businesses — 
-      including healthcare, retail, and the public sector — and then expanded into online education and creator tools.
-    </p>
+    <div class="tool-grid">
+      <a href="tools/qr-generator.html" class="tool-card">
+        <h3>QR Code Generator</h3>
+        <p>Create custom QR codes for links, business cards, and campaigns instantly.</p>
+      </a>
 
-    <p style="margin-bottom:1.2rem; color:#334155;">
-      We focus on systems that actually get used: data pipelines, lead-gen pages, dashboards, and AI-assist tools. 
-      Everything is documented, simple, and designed for people who don’t want to waste time rebuilding the same thing twice.
-    </p>
+      <a href="tools/file-converter.html" class="tool-card">
+        <h3>File Converter</h3>
+        <p>Convert PDF, Word, and image files online — fast, secure, and multilingual.</p>
+      </a>
 
-    <h2 style="margin-top:2rem; color:#1e3a8a;">What makes us different</h2>
-    <ul style="margin-top:1rem; color:#334155; line-height:1.8;">
-      <li>Data mindset (reliable, repeatable, logged)</li>
-      <li>Marketing mindset (funnels, audience, monetization)</li>
-      <li>Teaching mindset (clear, step-by-step, bilingual)</li>
-    </ul>
+      <a href="tools/caption-writer.html" class="tool-card">
+        <h3>AI Caption Writer</h3>
+        <p>Generate engaging captions and hashtags for social media posts in seconds.</p>
+      </a>
+
+      <a href="tools/bio-generator.html" class="tool-card">
+        <h3>Bio Generator</h3>
+        <p>Craft creative and professional bios for Instagram, LinkedIn, and portfolios.</p>
+      </a>
+
+      <a href="tools/social-audit.html" class="tool-card">
+        <h3>Social Media Audit</h3>
+        <p>Analyze your social posts, engagement, and hashtags for better performance.</p>
+      </a>
+
+      <a href="tools/online-business.html" class="tool-card">
+        <h3>Online Business Model</h3>
+        <p>Learn our 3-pillar system: product, marketing funnel, and automation setup.</p>
+      </a>
+    </div>
   </main>
 
   <!-- ⚫ Footer -->
@@ -88,6 +105,7 @@
           <li><a href="about.html">About</a></li>
           <li><a href="services.html">Services</a></li>
           <li><a href="projects.html">Projects</a></li>
+          <li><a href="tools.html">Tools</a></li>
           <li><a href="contact.html">Contact</a></li>
         </ul>
       </div>
@@ -122,7 +140,7 @@
   </footer>
 
   <script>
-    // 🌐 Language dropdown
+    // 🌐 Dropdown toggle
     const langToggle = document.querySelector('.lang-toggle');
     const langMenu = document.querySelector('.lang-menu');
 
@@ -131,9 +149,7 @@
     });
 
     document.addEventListener('click', (e) => {
-      if (!langToggle.contains(e.target)) {
-        langMenu.classList.remove('show');
-      }
+      if (!langToggle.contains(e.target)) langMenu.classList.remove('show');
     });
   </script>
 </body>
