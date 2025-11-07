@@ -3,9 +3,44 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Services | Bita Digital Hub</title>
+  <title>Thank You | Bita Digital Hub</title>
   <link rel="stylesheet" href="css/style.css" />
   <link rel="icon" type="image/png" href="assets/taskhub-logo.png" />
+  <style>
+    main {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 70vh;
+      text-align: center;
+      padding: 2rem;
+    }
+    h1 {
+      font-size: 2rem;
+      color: #1e3a8a;
+      font-weight: 800;
+      margin-bottom: 1rem;
+    }
+    p {
+      color: #475569;
+      margin-bottom: 2rem;
+      font-size: 1.1rem;
+    }
+    .btn-primary {
+      display: inline-block;
+      padding: 0.75rem 1.5rem;
+      background-color: #1e3a8a;
+      color: #fff;
+      border-radius: 0.5rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: background-color 0.2s;
+    }
+    .btn-primary:hover {
+      background-color: #152c63;
+    }
+  </style>
 </head>
 
 <body>
@@ -19,14 +54,13 @@
     <nav class="nav-links">
       <a href="index-en.html">Home</a>
       <a href="about.html">About</a>
-      <a href="services.html" class="active">Services</a>
+      <a href="services.html">Services</a>
       <a href="projects.html">Projects</a>
       <a href="tools.html">Tools</a>
       <a href="contact.html">Contact</a>
     </nav>
 
     <div class="nav-actions">
-      <!-- 🌐 Language Dropdown -->
       <div class="lang-switch">
         <button class="lang-toggle">
           <img src="https://flagcdn.com/16x12/gb.png" alt="English flag" /> English ▾
@@ -40,52 +74,11 @@
     </div>
   </header>
 
-  <!-- 💼 Services Section -->
-  <main class="container" style="max-width:1100px; padding:3rem 1rem;">
-    <h1 style="text-align:center; font-size:2rem; font-weight:800; color:#1e3a8a; margin-bottom:0.5rem;">
-      Services
-    </h1>
-    <p style="text-align:center; color:#475569; margin-bottom:2.5rem;">
-      Complete solutions for your digital + data presence.
-    </p>
-
-    <!-- 🔹 Digital Marketing Systems -->
-    <h2 style="text-align:center; color:#0f172a; font-size:1.5rem; margin-top:1rem;">Digital Marketing Systems</h2>
-    <div class="tool-grid" style="margin-top:1.5rem;">
-      <div class="tool-card">
-        <h3>Landing Pages</h3>
-        <p>High-converting pages for coaching, course, or franchise models.</p>
-      </div>
-
-      <div class="tool-card">
-        <h3>Funnels & Email</h3>
-        <p>Google Form, Mailchimp, or ADF-triggered automations to capture and nurture leads.</p>
-      </div>
-
-      <div class="tool-card">
-        <h3>Content Tools</h3>
-        <p>Caption generator, bio generator, URL shortener, QR builder — like your TaskHub.</p>
-      </div>
-    </div>
-
-    <!-- 🔹 Data & Automation -->
-    <h2 style="text-align:center; color:#0f172a; font-size:1.5rem; margin-top:3rem;">Data & Automation</h2>
-    <div class="tool-grid" style="margin-top:1.5rem;">
-      <div class="tool-card">
-        <h3>ETL / ELT Pipelines</h3>
-        <p>SSIS, ADF, Airflow, Databricks — staging → curated → reporting.</p>
-      </div>
-
-      <div class="tool-card">
-        <h3>Reporting / Dashboards</h3>
-        <p>Power BI, SSRS, or Fabric dashboards for business operations and marketing.</p>
-      </div>
-
-      <div class="tool-card">
-        <h3>API Integrations</h3>
-        <p>Connect GA, Ads, Stripe, or CRM data into a single source of truth.</p>
-      </div>
-    </div>
+  <!-- ✅ Thank You Message -->
+  <main>
+    <h1>Thank You!</h1>
+    <p>Your message has been received. We’ll get back to you soon.</p>
+    <a href="index-en.html" class="btn-primary">Return to Home</a>
   </main>
 
   <!-- ⚫ Footer -->
@@ -119,8 +112,8 @@
       <div class="footer-col">
         <h4>Services</h4>
         <ul>
-          <li><a href="#digital-marketing">Digital Marketing</a></li>
-          <li><a href="#data-engineering">Data & Automation</a></li>
+          <li><a href="services.html#digital-marketing">Digital Marketing</a></li>
+          <li><a href="services.html#data-engineering">Data & Automation</a></li>
           <li><a href="tools/online-business.html">Online Business</a></li>
         </ul>
       </div>
@@ -145,14 +138,9 @@
   </footer>
 
   <script>
-    // 🌐 Dropdown toggle
     const langToggle = document.querySelector('.lang-toggle');
     const langMenu = document.querySelector('.lang-menu');
-
-    langToggle.addEventListener('click', () => {
-      langMenu.classList.toggle('show');
-    });
-
+    langToggle.addEventListener('click', () => langMenu.classList.toggle('show'));
     document.addEventListener('click', (e) => {
       if (!langToggle.contains(e.target)) langMenu.classList.remove('show');
     });
