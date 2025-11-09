@@ -1,57 +1,83 @@
 <!-- 🧭 Header / Navbar Component -->
 <header class="navbar">
-  <div class="nav-left">
-    <img src="assets/taskhub-logo.svg" alt="Bita Digital Hub Logo" width="36" height="36" />
-    <div class="brand-group">
-      <a href="index.html" class="brand">Bita Digital Hub</a>
+  <div class="nav-container">
+    <!-- Left: Brand -->
+    <div class="nav-left">
+      <a href="index.html" class="brand-group">
+        <img src="assets/taskhub-logo.svg" alt="Bita Digital Hub Logo" width="36" height="36" />
+        <span class="brand">Bita Digital Hub</span>
+      </a>
     </div>
-  </div>
 
-  <!-- 🌐 Navigation -->
-  <nav class="nav-links">
-    <a href="index.html">Home</a>
-    <a href="about.html">About</a>
+    <!-- 🍔 Mobile Menu Toggle -->
+    <button class="menu-toggle" aria-label="Toggle menu">☰</button>
 
-    <!-- 🧰 Tools Dropdown -->
-    <div class="dropdown">
-      <a href="tools.html" class="dropbtn">Tools ▾</a>
-      <div class="dropdown-content">
-        <a href="tools/social-audit.html">Social Media Audit</a>
-        <a href="tools/url-shortener.html">URL Shortener</a>
-        <a href="tools/qr-generator.html">QR Generator</a>
-        <a href="tools/file-converter.html">File Converter</a>
-        <hr style="border:none; border-top:1px solid var(--border); margin:6px 0;">
-        <a href="telegram-bots.html"><strong>🤖 Telegram Bots</strong> <span style="color:#2563eb; font-size:0.85rem;">NEW</span></a>
+    <!-- Center: Navigation -->
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+
+      <!-- Tools -->
+      <div class="dropdown">
+        <button class="dropbtn">Tools ▾</button>
+        <div class="dropdown-content">
+          <a href="tools/social-audit.html">Social Media Audit</a>
+          <a href="tools/url-shortener.html">URL Shortener</a>
+          <a href="tools/qr-generator.html">QR Generator</a>
+          <a href="tools/file-converter.html">File Converter</a>
+          <a href="tools/telegram-bots.html">🤖 Telegram Bots <span class="new-tag">NEW</span></a>
+        </div>
       </div>
-    </div>
 
-    <a href="services.html">Services</a>
-    <a href="sources.html">Sources</a>
-    <a href="franchise.html">Franchise</a>
-    <a href="contact.html">Contact</a>
-  </nav>
+      <!-- Services -->
+      <div class="dropdown">
+        <button class="dropbtn">Services ▾</button>
+        <div class="dropdown-content">
+          <a href="services.html#marketing">Digital Marketing Systems</a>
+          <a href="services.html#data">Data & Automation</a>
+          <a href="services.html#bots">Telegram Bot Development</a>
+          <a href="services.html#consulting">Consulting & Strategy</a>
+        </div>
+      </div>
 
-  <!-- 🔧 Actions -->
-  <div class="nav-actions">
-    <!-- 🌍 Language Dropdown -->
-    <div class="lang-switch">
-      <button class="lang-toggle">
-        <img src="https://flagcdn.com/16x12/gb.png" alt="English flag" /> English ▾
-      </button>
-      <ul class="lang-menu">
-        <li>
-          <a href="index.html">
-            <img src="https://flagcdn.com/16x12/gb.png" alt="English flag" /> English
-          </a>
-        </li>
-        <li>
-          <a href="index-fa.html">
-            <img src="https://flagcdn.com/16x12/ir.png" alt="Persian flag" /> فارسی
-          </a>
-        </li>
-      </ul>
+      <!-- Sources -->
+      <div class="dropdown">
+        <button class="dropbtn">Sources ▾</button>
+        <div class="dropdown-content">
+          <a href="sources.html#datasets">AI Datasets</a>
+          <a href="sources.html#templates">Marketing Templates</a>
+          <a href="sources.html#learning">Learning Resources</a>
+          <a href="sources.html#affiliate">Affiliate Programs</a>
+        </div>
+      </div>
+
+      <!-- Franchise -->
+      <div class="dropdown">
+        <button class="dropbtn">Franchise ▾</button>
+        <div class="dropdown-content">
+          <a href="franchise.html#overview">Overview</a>
+          <a href="franchise.html#training">Training Program</a>
+          <a href="franchise.html#partner">Become a Partner</a>
+          <a href="franchise.html#faqs">FAQs</a>
+        </div>
+      </div>
+
+      <a href="contact.html">Contact</a>
+    </nav>
+
+    <!-- Right: Language + Login -->
+    <div class="nav-actions">
+      <div class="lang-switch">
+        <button class="lang-toggle">
+          <img src="https://flagcdn.com/16x12/gb.png" alt="English flag" /> English ▾
+        </button>
+        <ul class="lang-menu">
+          <li><a href="index.html"><img src="https://flagcdn.com/16x12/gb.png" /> English</a></li>
+          <li><a href="index-fa.html"><img src="https://flagcdn.com/16x12/ir.png" /> فارسی</a></li>
+        </ul>
+      </div>
+      <a href="login.html" class="btn-primary get-started">Login</a>
     </div>
-    <a href="login.html" class="btn-primary get-started">Login</a>
   </div>
 </header>
 
@@ -65,17 +91,17 @@
     if (!langToggle?.contains(e.target)) langMenu.classList.remove('show');
   });
 
-  // 🌍 Auto-redirect for Persian users
-  const userLang = navigator.language || navigator.userLanguage;
-  if (userLang && userLang.toLowerCase().startsWith('fa')) {
-    window.location.href = "index-fa.html";
-  }
+  // 🍔 Mobile Menu Toggle
+  const toggle = document.querySelector('.menu-toggle');
+  const navLinks = document.querySelector('.nav-links');
+  toggle?.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
+    toggle.textContent = navLinks.classList.contains('active') ? '✕' : '☰';
+  });
 
-  // 🟢 Highlight Active Page Link
+  // 🟢 Highlight Active Page
   const currentPage = window.location.pathname.split('/').pop();
   document.querySelectorAll('.nav-links a').forEach(link => {
-    if (link.getAttribute('href') === currentPage) {
-      link.classList.add('active');
-    }
+    if (link.getAttribute('href') === currentPage) link.classList.add('active');
   });
 </script>
