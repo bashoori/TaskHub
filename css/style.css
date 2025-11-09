@@ -1,46 +1,57 @@
 /* =========================================================
-🧭 Navbar – Perfect Alignment Fix
+🌐 Bita Digital Hub - Clean Layout Fix
+========================================================= */
+
+/* ---------- Reset ---------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  background: #f9fafb;
+  color: #0f172a;
+  line-height: 1.6;
+}
+
+/* ---------- Links ---------- */
+a {
+  text-decoration: none;
+  color: #1e3a8a;
+  transition: color 0.2s ease;
+}
+a:hover {
+  color: #2563eb;
+}
+
+/* =========================================================
+🧭 Navbar
 ========================================================= */
 .navbar {
   position: sticky;
   top: 0;
-  width: 100%;
-  background: rgba(255, 255, 255, 0.95);
-  border-bottom: 1px solid var(--border);
-  backdrop-filter: blur(10px);
-  z-index: 1000;
-  transition: all 0.3s ease;
-}
-
-.nav-container {
+  background: #ffffff;
+  border-bottom: 1px solid #e2e8f0;
   display: flex;
+  justify-content: center;
   align-items: center;
-  justify-content: space-between;
-  max-width: 1200px;
-  margin: 0 auto;
   padding: 0.8rem 1.5rem;
+  z-index: 1000;
 }
 
-/* ---------- Left Section ---------- */
 .nav-left {
   display: flex;
   align-items: center;
   gap: 0.6rem;
+  margin-right: 1rem;
 }
 
-.brand {
-  font-size: 1.25rem;
-  font-weight: 700;
-  color: var(--primary-blue);
-  transition: font-size 0.3s ease;
-}
-
-/* ---------- Unified Menu Style ---------- */
 .nav-links {
   display: flex;
   align-items: center;
   justify-content: center;
-  flex: 1;
   gap: 1.5rem;
 }
 
@@ -48,25 +59,21 @@
 .dropbtn {
   font-weight: 500;
   font-size: 1rem;
-  color: var(--text-mid);
-  padding: 0.5rem 0.75rem;
+  color: #475569;
+  padding: 0.5rem 0.9rem;
   line-height: 1;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  height: 40px;
   border-radius: 8px;
-  transition: color 0.25s ease, background 0.25s ease;
+  transition: all 0.2s ease;
+  background: none;
+  border: none;
 }
 
-.nav-links a.active,
 .nav-links a:hover,
 .dropbtn:hover {
-  color: var(--primary-blue);
-  background-color: #f1f5f9;
+  background: #f1f5f9;
+  color: #1e3a8a;
 }
 
-/* ---------- Dropdown ---------- */
 .dropdown {
   position: relative;
 }
@@ -74,27 +81,24 @@
 .dropdown-content {
   display: none;
   position: absolute;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  min-width: 200px;
   top: 110%;
   left: 0;
-  background-color: var(--white);
-  border: 1px solid var(--border);
-  border-radius: 10px;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
-  min-width: 210px;
-  z-index: 20;
+  padding: 0.5rem 0;
 }
 
 .dropdown-content a {
   display: block;
   padding: 0.75rem 1rem;
-  color: var(--text-dark);
-  font-weight: 500;
-  transition: background 0.2s ease;
+  color: #0f172a;
 }
 
 .dropdown-content a:hover {
   background: #f1f5f9;
-  color: var(--primary-blue);
+  color: #1e3a8a;
 }
 
 .dropdown:hover .dropdown-content {
@@ -106,43 +110,69 @@
   display: flex;
   align-items: center;
   gap: 1rem;
+  margin-left: 1.5rem;
 }
 
-/* ---------- Scroll Shrink ---------- */
-.navbar.shrink {
-  box-shadow: 0 2px 10px rgba(15, 23, 42, 0.08);
+/* ---------- Language Selector ---------- */
+.lang-switch {
+  position: relative;
 }
 
-.navbar.shrink .brand {
-  font-size: 1.1rem;
-}
-
-.navbar.shrink .nav-links a,
-.navbar.shrink .dropbtn {
-  height: 36px;
-  opacity: 0.9;
-}
-
-/* Remove the default button square */
-button, .menu-toggle {
-  background: none;
-  border: none;
-  outline: none;
-  padding: 0;
-  margin: 0;
+.lang-toggle {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  border: 1px solid #e2e8f0;
+  background: white;
+  border-radius: 10px;
+  padding: 0.4rem 0.8rem;
   cursor: pointer;
 }
 
-/* Optional: style the icon slightly for better centering */
-.menu-toggle {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.4rem;
-  color: var(--primary-blue);
-  transition: opacity 0.2s ease;
+.lang-toggle img {
+  width: 18px;
+  height: 12px;
 }
 
-.menu-toggle:hover {
-  opacity: 0.7;
+.lang-menu {
+  display: none;
+  position: absolute;
+  top: 110%;
+  right: 0;
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  padding: 0.3rem 0;
+}
+
+.lang-menu.show {
+  display: block;
+}
+
+.lang-menu a {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0.6rem 1rem;
+  color: #0f172a;
+}
+
+.lang-menu a:hover {
+  background: #f1f5f9;
+}
+
+/* ---------- Buttons ---------- */
+.btn-primary {
+  background: #1e3a8a;
+  color: white;
+  padding: 0.55rem 1.3rem;
+  border-radius: 50px;
+  font-weight: 600;
+  border: none;
+  transition: background 0.25s ease;
+}
+
+.btn-primary:hover {
+  background: #2563eb;
 }
