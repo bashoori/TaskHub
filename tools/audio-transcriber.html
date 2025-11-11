@@ -1,54 +1,57 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-page="tools">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title data-i18n="tools.audio.title">🎧 Audio Transcriber | Bita Digital Hub</title>
-  <meta name="description" content="Upload an English audio file (.mp3 or .wav) and get the full transcription instantly — free and secure tool by Bita Digital Hub." />
+  <title>Audio Transcriber | Bita Digital Hub</title>
+  <meta name="description" content="Convert voice recordings and audio files into editable text using AI-powered speech recognition." />
 
-  <!-- 🌈 Unified Styles -->
-  <link rel="stylesheet" href="../css/theme.css" />
+  <link rel="icon" type="image/svg+xml" href="../assets/taskhub-logo.svg" />
   <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="../css/theme.css" />
   <link rel="stylesheet" href="../css/components.css" />
   <link rel="stylesheet" href="../css/responsive.css" />
-  <link rel="icon" type="image/png" href="../assets/taskhub-logo.png" />
-
-  <!-- 💰 Google AdSense -->
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3215014361489762"
-          crossorigin="anonymous"></script>
 </head>
 
 <body>
-  <!-- 🧭 Shared Header -->
-  <div id="header"></div>
+  <div id="header-placeholder"></div>
+  <script>
+    fetch("../components/header-tools.html")
+      .then(res => res.text())
+      .then(html => { document.getElementById("header-placeholder").innerHTML = html; });
+  </script>
 
-  <!-- 🌐 Brand Section -->
-  <section class="brand-header center">
-    <img src="../assets/taskhub-logo.svg" alt="Bita Digital Hub Logo" class="brand-logo" />
-    <div class="brand-text">
-      <h1 class="brand-title" data-i18n="site.title">Bita Digital Hub</h1>
-      <p class="brand-subtitle" data-i18n="site.subtitle">Empowering Digital Growth</p>
-    </div>
-  </section>
+  <main class="tool-layout">
+    <aside class="ad-side"></aside>
 
-  <!-- 🎧 Audio Transcriber Tool -->
-  <main class="tool-page">
-    <div class="tool-card">
-      <h2 id="title" data-i18n="tools.audio.title">🎧 Audio Transcriber</h2>
-      <p id="desc" data-i18n="tools.audio.desc">Upload an English audio file (.mp3 or .wav) and get the full transcription below.</p>
+    <section class="tool-center">
+      <div class="tool-card gradient-purple">
+        <h2>Audio Transcriber 🎙️</h2>
+        <p>Upload your audio and convert it into editable, readable text using AI.</p>
 
-      <!-- 🌐 Language Switch -->
-      <div class="lang-btns">
-        <button id="btnEnglish" data-lang="en" class="active">English</button>
-        <button id="btnFarsi" data-lang="fa">فارسی</button>
+        <form class="tool-form">
+          <label for="audioFile">Upload Audio File:</label>
+          <input type="file" id="audioFile" accept="audio/*" class="file-input" />
+
+          <button type="button" id="transcribeBtn" class="primary-btn">Transcribe</button>
+
+          <div id="output" class="output-box hidden">
+            <p id="resultMsg"></p>
+          </div>
+        </form>
       </div>
+    </section>
 
-      <!-- 🧠 Upload Form -->
-      <form id="uploadForm" enctype="multipart/form-data" class="tool-form">
-        <label id="lblUpload" for="audioFile" data-i18n="tools.audio.upload">Upload your audio file:</label>
-        <input type="file" id="audioFile" name="audio" accept="audio/*" required />
-        <button type="submit" class="primary-btn" data-i18n="tools.audio.button">Transcribe Audio</button>
-      </form>
+    <aside class="ad-side"></aside>
+  </main>
 
-      <!-- 📜 Output Section -->
-      <div id="resultBox" class="output-box
+  <div id="footer-placeholder"></div>
+  <script>
+    fetch("../components/footer-tools.html")
+      .then(res => res.text())
+      .then(html => { document.getElementById("footer-placeholder").innerHTML = html; });
+  </script>
+
+  <script src="../js/audio-main.js" defer></script>
+</body>
+</html>
