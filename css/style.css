@@ -1,5 +1,5 @@
 /* =========================================================
-🌐 Bita Digital Hub – Global Stylesheet (Final Optimized)
+🌐 Bita Digital Hub – Global Stylesheet (Pastel Edition)
 Author: Bita Ashoori
 ========================================================= */
 
@@ -243,50 +243,9 @@ img {
   box-shadow: 0 6px 14px rgba(0, 0, 0, 0.1);
 }
 
-.about-icon {
-  font-size: 3rem;
-  margin-bottom: 1rem;
-}
-
-.value-box {
-  flex: 1;
-  min-width: 250px;
-  background: var(--white);
-  border-radius: 12px;
-  padding: 1.5rem;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-}
-
-/* =========================================================
-🎨 BUTTONS
-========================================================= */
-.btn {
-  display: inline-block;
-  padding: 0.8rem 1.6rem;
-  border-radius: 8px;
-  font-weight: 600;
-  text-decoration: none;
-  transition: transform 0.3s ease, background 0.3s ease;
-}
-
-.btn.primary {
-  background: var(--primary);
-  color: var(--white);
-}
-
-.btn.outline {
-  border: 2px solid var(--primary);
-  color: var(--primary);
-}
-
-.btn:hover {
-  transform: scale(1.05);
-}
-
 /* =========================================================
 💎 CARDS (Services / Courses / Tools)
 ========================================================= */
-
 .cards,
 .tools-grid {
   display: grid;
@@ -308,49 +267,39 @@ img {
   box-shadow: 0 10px 22px rgba(0, 0, 0, 0.08);
 }
 
-.card-icon {
-  font-size: 2rem;
-  margin-bottom: 1rem;
-  color: #fff;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.2);
-  backdrop-filter: blur(4px);
+/* 🎨 Pastel Gradient Themes */
+.gradient-blue {
+  background: linear-gradient(145deg, #e8f1ff, #f3f8ff);
+  border-left: 5px solid #1d4ed8;
+}
+.gradient-green {
+  background: linear-gradient(145deg, #ecfdf5, #f6fff9);
+  border-left: 5px solid #16a34a;
+}
+.gradient-yellow {
+  background: linear-gradient(145deg, #fff7ed, #fffaf3);
+  border-left: 5px solid #f59e0b;
+}
+.gradient-pink {
+  background: linear-gradient(145deg, #fdf2f8, #fff5f9);
+  border-left: 5px solid #db2777;
 }
 
 .card h3 {
-  color: #fff;
+  color: var(--text-dark);
   font-weight: 600;
   margin-bottom: 0.6rem;
 }
 
 .card p {
-  color: #f1f5f9;
+  color: var(--text-mid);
   font-size: 0.95rem;
   line-height: 1.6;
 }
 
-/* 🌈 Gradient Themes */
-.gradient-blue {
-  background: linear-gradient(135deg, #2563eb, #1e3a8a);
-}
-.gradient-green {
-  background: linear-gradient(135deg, #22c55e, #15803d);
-}
-.gradient-yellow {
-  background: linear-gradient(135deg, #facc15, #eab308);
-  color: #1e293b;
-}
-.gradient-yellow h3,
-.gradient-yellow p {
-  color: #1e293b;
-}
-.gradient-pink {
-  background: linear-gradient(135deg, #ec4899, #db2777);
+.card .card-icon {
+  font-size: 2.2rem;
+  margin-bottom: 1rem;
 }
 
 /* =========================================================
@@ -371,43 +320,8 @@ img {
   margin: 0 auto;
 }
 
-.footer-col h4 {
-  color: #fff;
-  margin-bottom: 1rem;
-  font-size: 1.1rem;
-}
-
-.footer-col a {
-  color: #94a3b8;
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
-
-.footer-col a:hover {
-  color: #38bdf8;
-}
-
-.footer-bottom {
-  border-top: 1px solid #1e293b;
-  margin-top: 2rem;
-  padding-top: 1rem;
-  text-align: center;
-  font-size: 0.85rem;
-  color: #94a3b8;
-}
-
-.footer-links a {
-  color: #94a3b8;
-  margin: 0 0.6rem;
-  text-decoration: none;
-}
-
-.footer-links a:hover {
-  color: #38bdf8;
-}
-
 /* =========================================================
-📱 MOBILE HEADER
+📱 RESPONSIVE
 ========================================================= */
 @media (max-width: 900px) {
   .navbar.modern {
@@ -499,110 +413,5 @@ img {
     width: 52px;
     height: 52px;
     font-size: 1.5rem;
-  }
-}
-/* =========================================================
-📩 CONTACT PAGE STYLES
-========================================================= */
-.contact-wrapper {
-  display: grid;
-  grid-template-columns: 1fr 1.2fr;
-  gap: 3rem;
-  align-items: start;
-  max-width: 900px;
-  margin: 2rem auto 0;
-}
-
-.contact-info {
-  text-align: left;
-}
-
-.contact-info h4 {
-  font-size: 1.3rem;
-  color: var(--primary);
-  margin-bottom: 0.5rem;
-}
-
-.contact-info p {
-  color: var(--text-mid);
-  line-height: 1.6;
-  margin-bottom: 0.6rem;
-}
-
-.contact-details a {
-  color: var(--primary-hover);
-  text-decoration: none;
-}
-
-.contact-details a:hover {
-  text-decoration: underline;
-}
-
-.social-links a {
-  color: var(--primary);
-  font-weight: 500;
-  text-decoration: none;
-}
-
-.social-links a:hover {
-  text-decoration: underline;
-}
-
-.contact-form {
-  background: var(--white);
-  border-radius: 14px;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.05);
-  padding: 2rem;
-}
-
-.contact-form input,
-.contact-form textarea {
-  width: 100%;
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  padding: 0.9rem 1rem;
-  font-size: 1rem;
-  margin-bottom: 1rem;
-  font-family: inherit;
-  resize: none;
-  transition: border 0.3s ease;
-}
-
-.contact-form input:focus,
-.contact-form textarea:focus {
-  border-color: var(--primary);
-  outline: none;
-}
-
-.contact-form button {
-  width: 100%;
-  padding: 0.9rem 1.5rem;
-  font-weight: 600;
-  background: var(--primary);
-  color: var(--white);
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: background 0.3s ease;
-}
-
-.contact-form button:hover {
-  background: var(--primary-hover);
-}
-
-/* Responsive */
-@media (max-width: 800px) {
-  .contact-wrapper {
-    grid-template-columns: 1fr;
-    text-align: center;
-  }
-
-  .contact-info {
-    text-align: center;
-  }
-
-  .social-links a {
-    display: inline-block;
-    margin: 0 0.3rem;
   }
 }
