@@ -1,18 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-tool="zip-unzip">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title data-i18n="tools.zipUnzip.title">ZIP & Unzip Tool | Bita Digital Hub</title>
+  <title>ZIP & Unzip Tool | Bita Digital Hub</title>
   <meta name="description"
-        content="Compress or extract ZIP files instantly — simple, secure, and free tool by Bita Digital Hub." />
+        content="Compress or extract ZIP files instantly — safe, simple, and fast tool by Bita Digital Hub." />
 
   <!-- 🌈 Unified Styles -->
-  <link rel="stylesheet" href="../css/theme.css" />
   <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="../css/theme.css" />
   <link rel="stylesheet" href="../css/components.css" />
   <link rel="stylesheet" href="../css/responsive.css" />
-
   <link rel="icon" type="image/png" href="../assets/taskhub-logo.png" />
 
   <!-- 💰 Google AdSense -->
@@ -25,48 +24,47 @@
 
 <body>
   <!-- 🧭 Shared Header -->
-  <div id="header"></div>
+  <div id="header-placeholder"></div>
+
+  <!-- 🧭 Breadcrumb (auto-injected via script.js) -->
 
   <!-- 🌐 Brand Section -->
   <section class="brand-header center">
     <img src="../assets/taskhub-logo.svg" alt="Bita Digital Hub Logo" class="brand-logo" />
     <div class="brand-text">
-      <h1 class="brand-title" data-i18n="site.title">Bita Digital Hub</h1>
-      <p class="brand-subtitle" data-i18n="site.subtitle">Empowering Digital Growth</p>
+      <h1 class="brand-title">Bita Digital Hub</h1>
+      <p class="brand-subtitle">Empowering Digital Growth</p>
     </div>
   </section>
 
   <!-- 🧰 ZIP / UnZIP Tool -->
   <main class="tool-page">
     <div class="tool-card">
-      <h2 id="title" data-i18n="tools.zipUnzip.title">ZIP & Unzip Files 📦</h2>
-      <p id="desc" data-i18n="tools.zipUnzip.desc">
-        Compress or extract ZIP files instantly — safe, simple, and fast.
-      </p>
+      <h2>ZIP & Unzip Files 📦</h2>
+      <p>Compress or extract ZIP files instantly — safe, simple, and fast.</p>
 
       <!-- 🌐 Language Buttons -->
       <div class="lang-btns">
-        <button id="btnEnglish" data-lang="en" class="active">English</button>
-        <button id="btnFarsi" data-lang="fa">فارسی</button>
+        <button id="btnEnglish" class="active">English</button>
+        <button id="btnFarsi">فارسی</button>
       </div>
 
       <!-- 🗂️ Form -->
       <div class="tool-form">
-        <label id="lblMode" data-i18n="tools.zipUnzip.mode">Select mode:</label>
+        <label for="modeSelect">Select mode:</label>
         <select id="modeSelect" class="select-input">
-          <option value="zip" data-i18n="tools.zipUnzip.optionZip">Compress files (ZIP)</option>
-          <option value="unzip" data-i18n="tools.zipUnzip.optionUnzip">Extract ZIP file</option>
+          <option value="zip">Compress files (ZIP)</option>
+          <option value="unzip">Extract ZIP file</option>
         </select>
 
-        <label id="lblUpload" for="fileInput" data-i18n="tools.zipUnzip.upload">Choose file(s):</label>
+        <label for="fileInput">Choose file(s):</label>
         <input type="file" id="fileInput" multiple class="file-input" />
 
-        <button id="processBtn" class="primary-btn" data-i18n="tools.zipUnzip.start">Start</button>
+        <button id="processBtn" class="primary-btn">Start</button>
 
         <div id="output" class="output-box hidden">
           <p id="resultMsg"></p>
-          <a id="downloadLink" href="#" class="download-link" download="bita-archive.zip"
-             data-i18n="tools.zipUnzip.download">⬇️ Download</a>
+          <a id="downloadLink" href="#" class="download-link" download="bita-archive.zip">⬇️ Download</a>
         </div>
       </div>
     </div>
@@ -83,11 +81,12 @@
     </div>
   </main>
 
-  <!-- 🦶 Footer -->
-  <div id="footer"></div>
+  <!-- 🦶 Shared Footer -->
+  <div id="footer-placeholder"></div>
 
   <!-- 📜 Scripts -->
-  <script type="module" src="../js/main.js"></script>
+  <script src="../js/script.js"></script>
   <script src="../js/zip-main.js"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
 </body>
 </html>
