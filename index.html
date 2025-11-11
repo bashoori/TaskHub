@@ -10,10 +10,13 @@
 
   <!-- 🔧 JS -->
   <script src="js/script.js" defer></script>
+
+  <!-- 🧩 Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 
 <body>
-  <!-- ===== HEADER (loaded dynamically from components/header.html) ===== -->
+  <!-- ===== HEADER ===== -->
   <div id="header-placeholder"></div>
 
   <!-- ================= HOME ================= -->
@@ -77,20 +80,28 @@
   <section id="services" class="section services">
     <h2>Our Services</h2>
     <p class="section-sub">Complete solutions for your digital transformation</p>
+
     <div class="cards">
-      <div class="card">
+      <div class="card gradient-blue">
+        <div class="card-icon"><i data-lucide="sparkles"></i></div>
         <h3>AI Personal Branding</h3>
         <p>Build your brand identity using AI-generated strategies, visuals, and insights.</p>
       </div>
-      <div class="card">
+
+      <div class="card gradient-green">
+        <div class="card-icon"><i data-lucide="layout-dashboard"></i></div>
         <h3>Website Creation</h3>
         <p>Responsive, optimized websites designed for performance and impact.</p>
       </div>
-      <div class="card">
+
+      <div class="card gradient-yellow">
+        <div class="card-icon"><i data-lucide="bar-chart-3"></i></div>
         <h3>Data & Analytics</h3>
         <p>Transform raw data into actionable insights with dashboards and reports.</p>
       </div>
-      <div class="card">
+
+      <div class="card gradient-pink">
+        <div class="card-icon"><i data-lucide="bot"></i></div>
         <h3>Telegram Robots</h3>
         <p>Automate customer engagement, lead collection, and marketing with smart bots.</p>
       </div>
@@ -101,16 +112,22 @@
   <section id="courses" class="section courses light">
     <h2>Courses & Learning</h2>
     <p class="section-sub">Grow your skills and business in the digital economy</p>
+
     <div class="cards">
-      <div class="card">
+      <div class="card gradient-green">
+        <div class="card-icon"><i data-lucide="book-open"></i></div>
         <h3>Free Online Courses</h3>
         <p>Access beginner-friendly courses on data, AI, and digital marketing.</p>
       </div>
-      <div class="card">
+
+      <div class="card gradient-blue">
+        <div class="card-icon"><i data-lucide="megaphone"></i></div>
         <h3>Digital Marketing Mastery</h3>
         <p>Learn how to promote your brand and grow your online presence effectively.</p>
       </div>
-      <div class="card">
+
+      <div class="card gradient-pink">
+        <div class="card-icon"><i data-lucide="briefcase"></i></div>
         <h3>Online Franchise System</h3>
         <p>Start your own business using our automation-ready digital franchise model.</p>
       </div>
@@ -118,23 +135,31 @@
   </section>
 
   <!-- ================= TOOLS ================= -->
-  <section id="tools" class="section tools">
+  <section id="tools" class="section tools light">
     <h2>Tools & Automation</h2>
     <p class="section-sub">AI and automation tools to power your productivity</p>
-    <div class="cards">
-      <div class="card">
+
+    <div class="tools-grid">
+      <div class="card gradient-blue">
+        <div class="card-icon"><i data-lucide="bar-chart-2"></i></div>
         <h3>Social Media Audit</h3>
         <p>Analyze your engagement and get data-driven insights for growth.</p>
       </div>
-      <div class="card">
+
+      <div class="card gradient-green">
+        <div class="card-icon"><i data-lucide="link-2"></i></div>
         <h3>URL Shortener</h3>
         <p>Track and manage your links for marketing and performance analysis.</p>
       </div>
-      <div class="card">
+
+      <div class="card gradient-yellow">
+        <div class="card-icon"><i data-lucide="qr-code"></i></div>
         <h3>QR Generator</h3>
         <p>Create custom QR codes for campaigns, websites, or product tags.</p>
       </div>
-      <div class="card">
+
+      <div class="card gradient-pink">
+        <div class="card-icon"><i data-lucide="bot"></i></div>
         <h3>Telegram Bot Builder</h3>
         <p>Design and deploy bots to automate leads, sales, and customer interactions.</p>
       </div>
@@ -153,7 +178,13 @@
     </form>
   </section>
 
-  <!-- ===== FOOTER (loaded dynamically from components/footer.html) ===== -->
+  <!-- ===== FOOTER ===== -->
   <div id="footer-placeholder"></div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      lucide.createIcons();
+    });
+  </script>
 </body>
 </html>
