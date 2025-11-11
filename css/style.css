@@ -521,3 +521,99 @@ a {
   color: var(--text-dark);
   font-weight: 500;
 }
+/* =========================================================
+🧰 TOOLS PAGE LAYOUT
+========================================================= */
+.tool-page {
+  max-width: 900px;
+  margin: 6rem auto;
+  padding: 3rem 2rem;
+  background: var(--white);
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+  text-align: center;
+}
+
+.tool-page h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 0.6rem;
+}
+
+.tool-page p {
+  color: var(--text-mid);
+  margin-bottom: 2rem;
+  font-size: 1.05rem;
+  line-height: 1.6;
+}
+
+.tool-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* --- Inputs & Buttons --- */
+.tool-container input,
+.tool-container select,
+.tool-container textarea,
+.tool-container button {
+  font-family: "Poppins", sans-serif;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  padding: 0.7rem 1rem;
+  transition: all 0.2s ease;
+}
+
+.tool-container input:focus,
+.tool-container select:focus,
+.tool-container textarea:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.tool-container button {
+  background: var(--primary);
+  color: var(--white);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.tool-container button:hover {
+  background: var(--primary-hover);
+  transform: translateY(-2px);
+}
+
+/* --- Output Box --- */
+.output-box {
+  margin-top: 1rem;
+  padding: 1rem;
+  background: #f8fafc;
+  border: 1px dashed var(--border);
+  border-radius: 10px;
+  word-wrap: break-word;
+  color: var(--text-dark);
+  max-width: 100%;
+  font-family: monospace;
+}
+
+/* --- Checkbox Row --- */
+.option-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.8rem 1.2rem;
+  margin: 1rem 0;
+  color: var(--text-dark);
+}
+
+/* --- Gradient Background by Tool Type --- */
+body[data-tool="password-generator"] .tool-page { background: linear-gradient(145deg, #edf3ff, #f5f8ff); }
+body[data-tool="csv-cleaner"] .tool-page { background: linear-gradient(145deg, #ecfeff, #f0f9ff); }
+body[data-tool="zip-unzip"] .tool-page { background: linear-gradient(145deg, #f3f4f6, #ffffff); }
+body[data-tool="audio-transcriber"] .tool-page { background: linear-gradient(145deg, #f5f3ff, #faf5ff); }
+body[data-tool="file-converter"] .tool-page { background: linear-gradient(145deg, #fff7ed, #fffaf3); }
