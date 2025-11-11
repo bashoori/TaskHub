@@ -1,5 +1,5 @@
 /* =========================================================
-🌐 Bita Digital Hub – Global Stylesheet (Polished Edition)
+🌐 Bita Digital Hub – Global Stylesheet (Final Optimized)
 Author: Bita Ashoori
 ========================================================= */
 
@@ -57,7 +57,6 @@ img {
   display: flex;
   align-items: center;
   gap: 0.8rem;
-  min-width: 220px;
 }
 
 .brand-info .brand {
@@ -224,7 +223,9 @@ img {
   color: var(--text-mid);
 }
 
-/* About Section */
+/* =========================================================
+💡 ABOUT SECTION
+========================================================= */
 .about-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -280,6 +281,76 @@ img {
 
 .btn:hover {
   transform: scale(1.05);
+}
+
+/* =========================================================
+💎 CARDS (Services / Courses / Tools)
+========================================================= */
+
+.cards,
+.tools-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.8rem;
+}
+
+.card {
+  padding: 2rem 1.5rem;
+  border-radius: 16px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.05);
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.08);
+}
+
+.card-icon {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #fff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(4px);
+}
+
+.card h3 {
+  color: #fff;
+  font-weight: 600;
+  margin-bottom: 0.6rem;
+}
+
+.card p {
+  color: #f1f5f9;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+/* 🌈 Gradient Themes */
+.gradient-blue {
+  background: linear-gradient(135deg, #2563eb, #1e3a8a);
+}
+.gradient-green {
+  background: linear-gradient(135deg, #22c55e, #15803d);
+}
+.gradient-yellow {
+  background: linear-gradient(135deg, #facc15, #eab308);
+  color: #1e293b;
+}
+.gradient-yellow h3,
+.gradient-yellow p {
+  color: #1e293b;
+}
+.gradient-pink {
+  background: linear-gradient(135deg, #ec4899, #db2777);
 }
 
 /* =========================================================
@@ -340,8 +411,7 @@ img {
 ========================================================= */
 @media (max-width: 900px) {
   .navbar.modern {
-    justify-content: space-between;
-    padding: 0.7rem 1.2rem;
+    padding: 0.8rem 1.2rem;
     width: 100%;
     backdrop-filter: blur(10px);
     background: rgba(255, 255, 255, 0.95);
@@ -374,11 +444,9 @@ img {
   .menu-toggle.open span:nth-child(1) {
     transform: rotate(45deg) translateY(7px);
   }
-
   .menu-toggle.open span:nth-child(2) {
     opacity: 0;
   }
-
   .menu-toggle.open span:nth-child(3) {
     transform: rotate(-45deg) translateY(-7px);
   }
@@ -422,79 +490,14 @@ img {
     background: #f8fafc;
     color: var(--primary);
   }
-}
-/* =========================================================
-💡 CARDS – Colored Grid Layout
-========================================================= */
 
-.cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 1.5rem;
-}
+  .card {
+    padding: 1.6rem;
+  }
 
-/* Base Card */
-.card {
-  padding: 1.8rem;
-  border-radius: 14px;
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.05);
-  text-align: left;
-  color: var(--text-dark);
-  background: var(--white);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.08);
-}
-
-.card h3 {
-  color: var(--primary);
-  margin-bottom: 0.6rem;
-  font-size: 1.2rem;
-}
-
-.card p {
-  color: var(--text-mid);
-  font-size: 0.95rem;
-  line-height: 1.6;
-}
-
-/* ✨ Themed Background Variants */
-.card:nth-child(1) {
-  background: linear-gradient(135deg, #e0e7ff, #eef2ff);
-  border-left: 5px solid var(--primary);
-}
-
-.card:nth-child(2) {
-  background: linear-gradient(135deg, #dbeafe, #eff6ff);
-  border-left: 5px solid #2563eb;
-}
-
-.card:nth-child(3) {
-  background: linear-gradient(135deg, #dcfce7, #f0fdf4);
-  border-left: 5px solid #16a34a;
-}
-
-.card:nth-child(4) {
-  background: linear-gradient(135deg, #fef3c7, #fff7ed);
-  border-left: 5px solid #f59e0b;
-}
-
-.card:nth-child(5) {
-  background: linear-gradient(135deg, #fce7f3, #fdf2f8);
-  border-left: 5px solid #db2777;
-}
-
-.card:nth-child(6) {
-  background: linear-gradient(135deg, #cffafe, #ecfeff);
-  border-left: 5px solid #0891b2;
-}
-
-/* Optional icon style inside cards (if used) */
-.card .icon {
-  font-size: 2rem;
-  color: var(--primary);
-  margin-bottom: 1rem;
+  .card-icon {
+    width: 52px;
+    height: 52px;
+    font-size: 1.5rem;
+  }
 }
