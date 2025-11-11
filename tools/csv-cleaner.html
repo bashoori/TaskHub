@@ -1,90 +1,58 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-page="tools">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title data-i18n="tools.csv.title">CSV & Excel Cleaner | Bita Digital Hub</title>
-  <meta name="description" content="Upload and clean your CSV or Excel files — remove duplicates, empty rows, or trim spaces. Free, fast, and secure tool by Bita Digital Hub." />
+  <title>CSV Cleaner | Bita Digital Hub</title>
+  <meta name="description" content="Automatically clean and format CSV files — remove duplicates, fix structure, and prepare for analysis." />
 
-  <!-- 🌈 Unified Styles -->
-  <link rel="stylesheet" href="../css/theme.css" />
+  <link rel="icon" type="image/svg+xml" href="../assets/taskhub-logo.svg" />
   <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="../css/theme.css" />
   <link rel="stylesheet" href="../css/components.css" />
   <link rel="stylesheet" href="../css/responsive.css" />
-  <link rel="icon" type="image/png" href="../assets/taskhub-logo.png" />
-
-  <!-- 💰 Google AdSense -->
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3215014361489762"
-          crossorigin="anonymous"></script>
-
-  <!-- 🧩 XLSX -->
-  <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
 </head>
 
 <body>
-  <!-- 🧭 Shared Header -->
-  <div id="header"></div>
+  <div id="header-placeholder"></div>
+  <script>
+    fetch("../components/header-tools.html")
+      .then(res => res.text())
+      .then(html => { document.getElementById("header-placeholder").innerHTML = html; });
+  </script>
 
-  <!-- 🌐 Brand Section -->
-  <section class="brand-header center">
-    <img src="../assets/taskhub-logo.svg" alt="Bita Digital Hub Logo" class="brand-logo" />
-    <div class="brand-text">
-      <h1 class="brand-title" data-i18n="site.title">Bita Digital Hub</h1>
-      <p class="brand-subtitle" data-i18n="site.subtitle">Empowering Digital Growth</p>
-    </div>
-  </section>
+  <main class="tool-layout">
+    <aside class="ad-side"></aside>
 
-  <!-- 🧹 CSV Cleaner -->
-  <main class="tool-page">
-    <div class="tool-card">
-      <h2 id="title" data-i18n="tools.csv.title">CSV & Excel Cleaner 🧹</h2>
-      <p id="desc" data-i18n="tools.csv.desc">
-        Upload and clean your spreadsheet — remove duplicates, empty rows, and trim spaces instantly.
-      </p>
+    <section class="tool-center">
+      <div class="tool-card gradient-cyan">
+        <h2>CSV Cleaner 🧹</h2>
+        <p>Clean your CSV files — remove duplicates, fix column order, and export in seconds.</p>
 
-      <!-- 🌐 Language Buttons -->
-      <div class="lang-btns">
-        <button id="btnEnglish" data-lang="en" class="active">English</button>
-        <button id="btnFarsi" data-lang="fa">فارسی</button>
+        <form class="tool-form">
+          <label for="csvFile">Upload CSV file:</label>
+          <input type="file" id="csvFile" accept=".csv" class="file-input" />
+
+          <button type="button" id="cleanBtn" class="primary-btn">Clean File</button>
+
+          <div id="output" class="output-box hidden">
+            <p id="resultMsg"></p>
+            <a id="downloadLink" href="#" class="btn outline" download>⬇️ Download Clean File</a>
+          </div>
+        </form>
       </div>
+    </section>
 
-      <div class="tool-form">
-        <label id="lblUpload" for="fileInput" data-i18n="tools.csv.upload">Upload a CSV or Excel file:</label>
-        <input type="file" id="fileInput" accept=".csv, .xlsx" />
-
-        <label id="lblOptions" data-i18n="tools.csv.options" style="margin-top:1rem;">Cleaning options:</label>
-        <div class="options-group">
-          <label><input type="checkbox" id="trimSpaces" checked /> <span id="txtTrim" data-i18n="tools.csv.trim">Trim spaces</span></label>
-          <label><input type="checkbox" id="dropEmpty" checked /> <span id="txtDrop" data-i18n="tools.csv.drop">Remove empty rows</span></label>
-          <label><input type="checkbox" id="removeDupes" checked /> <span id="txtDupes" data-i18n="tools.csv.dupes">Remove duplicates</span></label>
-        </div>
-
-        <button id="btnClean" class="primary-btn" data-i18n="tools.csv.clean">Clean File</button>
-
-        <div id="output" class="output-box hidden">
-          <p id="resultMsg" data-i18n="tools.csv.success">✅ File cleaned successfully!</p>
-          <a id="downloadLink" href="#" class="download-link" download="cleaned.csv" data-i18n="tools.csv.download">⬇️ Download cleaned file</a>
-        </div>
-      </div>
-    </div>
-
-    <!-- 📢 Ad -->
-    <div class="ad-container">
-      <ins class="adsbygoogle"
-           style="display:block"
-           data-ad-client="ca-pub-3215014361489762"
-           data-ad-slot="3333333333"
-           data-ad-format="auto"
-           data-full-width-responsive="true"></ins>
-      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-    </div>
+    <aside class="ad-side"></aside>
   </main>
 
-  <!-- 🦶 Shared Footer -->
-  <div id="footer"></div>
+  <div id="footer-placeholder"></div>
+  <script>
+    fetch("../components/footer-tools.html")
+      .then(res => res.text())
+      .then(html => { document.getElementById("footer-placeholder").innerHTML = html; });
+  </script>
 
-  <!-- 📜 Scripts -->
-  <script type="module" src="../js/main.js"></script>
-  <script src="../js/csv-main.js"></script>
+  <script src="../js/csv-main.js" defer></script>
 </body>
 </html>
