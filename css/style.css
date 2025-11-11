@@ -432,3 +432,44 @@ a {
   [data-page="tools"] .tool-layout { grid-template-columns: 1fr; padding: 2rem 1rem 3rem; }
   [data-page="tools"] .brand-header { margin-top: 6rem; }
 }
+/* ---------- Hero Section ---------- */
+.hero {
+  background: #f8fafc;
+  text-align: center;
+  padding: 7rem 2rem 6rem;
+}
+
+.hero-content h1 {
+  font-size: 3.2rem; /* 🔥 Bigger title */
+  font-weight: 800;
+  color: #0f172a;
+  line-height: 1.2;
+  margin-bottom: 1.2rem;
+}
+
+.hero-content p {
+  font-size: 1.25rem;
+  color: #334155;
+  margin-bottom: 2.5rem;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.7;
+}
+
+.hero .btn {
+  font-size: 1.05rem;
+  padding: 0.9rem 2.2rem;
+  border-radius: 12px;
+}
+
+.btn.primary {
+  background: #1e3a8a;
+  color: #ffffff;
+}
+
+.btn.outline {
+  border: 2px solid #1e3a8a;
+  color: #1e3a8a;
+  background: transparent;
+}
