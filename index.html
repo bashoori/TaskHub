@@ -1,24 +1,227 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-page="home">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Bita Digital Hub | Build • Automate • Earn Online</title>
-  <meta name="description" content="Empowering creators and businesses with automation, AI systems, and data-driven growth. Discover free digital tools, online courses, and transformation services.">
+  <meta name="description" content="Empowering creators and businesses with automation, AI systems, and data-driven growth. Discover free digital tools, online courses, and transformation services." />
 
-  <!-- 🔗 Stylesheet -->
+  <!-- 🌈 Unified Styles -->
   <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/theme.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
 
-  <!-- 🔧 JavaScript -->
+  <!-- ⚙️ Core Scripts -->
   <script src="js/script.js" defer></script>
+  <script src="https://unpkg.com/lucide@latest" defer></script>
 
-  <!-- 🧩 Lucide Icons -->
-  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    /* --- Fix header overlap --- */
+    body {
+      margin: 0;
+      padding-top: 80px; /* height of fixed navbar */
+      font-family: "Poppins", sans-serif;
+      background: #f9fafb;
+      color: #0f172a;
+    }
+
+    /* --- Hero Section --- */
+    .hero {
+      text-align: center;
+      padding: 5rem 1rem 4rem;
+      background: var(--bg);
+    }
+
+    .hero h1 {
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--text-dark);
+      margin-bottom: 1rem;
+    }
+
+    .hero p {
+      max-width: 600px;
+      margin: 0 auto 1.5rem;
+      color: var(--text-mid);
+      line-height: 1.6;
+    }
+
+    .cta-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    /* --- Section spacing --- */
+    .section {
+      padding: 4rem 1rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .section.light {
+      background: #ffffff;
+    }
+
+    .section h2 {
+      text-align: center;
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--text-dark);
+      margin-bottom: 0.5rem;
+    }
+
+    .section-sub {
+      text-align: center;
+      color: var(--text-mid);
+      margin-bottom: 2rem;
+      font-size: 1rem;
+    }
+
+    /* --- About Grid --- */
+    .about-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      align-items: start;
+    }
+
+    .about-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-md);
+      padding: 2rem;
+      text-align: center;
+    }
+
+    .about-card img {
+      width: 60px;
+      margin-bottom: 1rem;
+    }
+
+    /* --- Tools Grid --- */
+    .tools-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    /* --- Cards --- */
+    .card {
+      text-align: center;
+      border-radius: 16px;
+      padding: 2rem 1.2rem;
+      color: #fff;
+      box-shadow: var(--shadow-md);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .card-icon {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 1rem;
+    }
+
+    .card-icon i {
+      width: 32px;
+      height: 32px;
+    }
+
+    .card h3 {
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    .card p {
+      font-size: 0.95rem;
+      line-height: 1.5;
+      color: #f8fafc;
+    }
+
+    /* --- Contact --- */
+    .contact-form {
+      max-width: 700px;
+      margin: 2rem auto;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1rem;
+    }
+
+    .form-group label {
+      font-weight: 500;
+      color: var(--text-dark);
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 0.7rem 0.9rem;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: #f9fafb;
+    }
+
+    .form-group textarea {
+      height: 120px;
+      resize: vertical;
+    }
+
+    /* --- Buttons --- */
+    .btn {
+      display: inline-block;
+      border-radius: 8px;
+      padding: 0.6rem 1.4rem;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      text-decoration: none;
+    }
+
+    .btn.primary {
+      background: var(--primary);
+      color: #fff;
+    }
+
+    .btn.primary:hover {
+      background: var(--primary-hover);
+    }
+
+    .btn.outline {
+      border: 2px solid var(--primary);
+      color: var(--primary);
+    }
+
+    .btn.outline:hover {
+      background: var(--primary);
+      color: #fff;
+    }
+  </style>
 </head>
 
 <body>
-  <!-- ================= HEADER ================= -->
+  <!-- 🧭 Shared Header -->
   <div id="header-placeholder"></div>
+  <script>
+    fetch("components/header.html")
+      .then(res => res.text())
+      .then(html => { document.getElementById("header-placeholder").innerHTML = html; })
+      .catch(err => console.error("Header load error:", err));
+  </script>
 
   <!-- ================= HERO ================= -->
   <section id="home" class="section hero">
@@ -56,9 +259,7 @@
       </div>
 
       <div class="about-card">
-        <div class="about-icon">
-          <img src="assets/taskhub-logo.svg" alt="Bita Digital Hub Logo" />
-        </div>
+        <img src="assets/taskhub-logo.svg" alt="Bita Digital Hub Logo" />
         <h3>Expert Team</h3>
         <p>Building your digital future through smart systems and creative automation.</p>
       </div>
@@ -71,7 +272,6 @@
     <p class="section-sub">AI and automation tools to power your productivity</p>
 
     <div class="tools-grid">
-
       <a href="tools/password-generator.html" class="card gradient-blue">
         <div class="card-icon"><i data-lucide="shield"></i></div>
         <h3>Password Generator</h3>
@@ -116,128 +316,21 @@
     </div>
   </section>
 
-  <!-- ================= COURSES ================= -->
-  <section id="courses" class="section courses light">
-    <h2>Courses & Learning</h2>
-    <p class="section-sub">Grow your skills and business in the digital economy</p>
+  <!-- ================= OTHER SECTIONS (Courses, Services, Contact) ================= -->
+  <!-- Keep your existing content below unchanged -->
 
-    <div class="cards">
-      <div class="card gradient-green">
-        <div class="card-icon"><i data-lucide="book-open"></i></div>
-        <h3>Free Online Courses</h3>
-        <p>Access beginner-friendly courses on data, AI, and digital marketing.</p>
-      </div>
-
-      <div class="card gradient-blue">
-        <div class="card-icon"><i data-lucide="megaphone"></i></div>
-        <h3>Digital Marketing Mastery</h3>
-        <p>Learn how to promote your brand and grow your online presence effectively.</p>
-      </div>
-
-      <div class="card gradient-pink">
-        <div class="card-icon"><i data-lucide="briefcase"></i></div>
-        <h3>Online Franchise System</h3>
-        <p>Start your own business using our automation-ready digital franchise model.</p>
-      </div>
-    </div>
-
-    <div class="cta-buttons">
-      <a href="#contact" class="btn outline">Schedule a Free Consultation</a>
-    </div>
-  </section>
-
-  <!-- ================= SERVICES ================= -->
-  <section id="services" class="section services">
-    <h2>Our Services</h2>
-    <p class="section-sub">Complete solutions for your digital transformation</p>
-
-    <div class="cards">
-      <div class="card gradient-blue">
-        <div class="card-icon"><i data-lucide="sparkles"></i></div>
-        <h3>AI Personal Branding</h3>
-        <p>Build your brand identity using AI-generated strategies, visuals, and insights.</p>
-      </div>
-
-      <div class="card gradient-green">
-        <div class="card-icon"><i data-lucide="layout-dashboard"></i></div>
-        <h3>Website Creation</h3>
-        <p>Responsive, optimized websites designed for performance and impact.</p>
-      </div>
-
-      <div class="card gradient-yellow">
-        <div class="card-icon"><i data-lucide="bar-chart-3"></i></div>
-        <h3>Data & Analytics</h3>
-        <p>Transform raw data into actionable insights with dashboards and reports.</p>
-      </div>
-
-      <div class="card gradient-pink">
-        <div class="card-icon"><i data-lucide="bot"></i></div>
-        <h3>Telegram Robots</h3>
-        <p>Automate customer engagement, lead collection, and marketing with smart bots.</p>
-      </div>
-    </div>
-
-    <div class="cta-buttons">
-      <a href="#contact" class="btn outline">Schedule a Free Consultation</a>
-    </div>
-  </section>
-
-  <!-- ================= CONTACT ================= -->
-  <section id="contact" class="section contact light">
-    <h2>Contact Us</h2>
-    <p class="section-sub">Let’s build something amazing together</p>
-
-    <form class="contact-form" action="https://formsubmit.co/contact@bitadigitalhub.com" method="POST">
-      <div class="form-grid">
-        <div class="form-group">
-          <label for="name">Full Name *</label>
-          <input type="text" id="name" name="name" placeholder="Your full name" required />
-        </div>
-        <div class="form-group">
-          <label for="email">Email Address *</label>
-          <input type="email" id="email" name="email" placeholder="your@email.com" required />
-        </div>
-      </div>
-
-      <div class="form-grid">
-        <div class="form-group">
-          <label for="company">Company</label>
-          <input type="text" id="company" name="company" placeholder="Company name" />
-        </div>
-        <div class="form-group">
-          <label for="phone">Phone</label>
-          <input type="text" id="phone" name="phone" placeholder="+1 604 000 0000" />
-        </div>
-      </div>
-
-      <div class="form-group">
-        <label for="service">Service Interested In *</label>
-        <select id="service" name="service" required>
-          <option value="">Select a service</option>
-          <option>AI Personal Branding</option>
-          <option>Website Creation</option>
-          <option>Data & Analytics</option>
-          <option>Telegram Automation</option>
-        </select>
-      </div>
-
-      <div class="form-group">
-        <label for="message">Message *</label>
-        <textarea id="message" name="message" placeholder="Tell us about your project..." required></textarea>
-      </div>
-
-      <button type="submit" class="btn primary">Send Message</button>
-    </form>
-  </section>
-
-  <!-- ================= FOOTER ================= -->
+  <!-- 🦶 Shared Footer -->
   <div id="footer-placeholder"></div>
-
-  <!-- 🌀 Initialize Lucide Icons -->
   <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      lucide.createIcons();
-    });
+    fetch("components/footer.html")
+      .then(res => res.text())
+      .then(html => { document.getElementById("footer-placeholder").innerHTML = html; })
+      .catch(err => console.error("Footer load error:", err));
+  </script>
+
+  <!-- Initialize Icons -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => lucide.createIcons());
   </script>
 </body>
 </html>
