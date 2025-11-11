@@ -282,6 +282,13 @@ img {
   box-shadow: 0 6px 14px rgba(0, 0, 0, 0.1);
 }
 
+.about-icon img {
+  width: 64px;
+  height: auto;
+  margin-bottom: 1rem;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+}
+
 /* =========================================================
 💎 CARDS
 ========================================================= */
