@@ -1,12 +1,11 @@
 <!-- =========================================================
-🦶 Footer Component – Bita Digital Hub (Dark Edition)
-Elegant, Modular, and Responsive
+🦶 Footer Component – Bita Digital Hub (Dark Edition, v2)
+Refined structure, better alignment, and accessibility
 ========================================================= -->
 
 <footer class="footer dark">
   <div class="footer-container">
-
-    <!-- 🔹 Column 1: Brand Info -->
+    <!-- 🔹 Brand & Mission -->
     <div class="footer-col brand">
       <div class="footer-logo">
         <img src="assets/taskhub-logo.svg" alt="Bita Digital Hub Logo" width="40" height="40" />
@@ -16,22 +15,25 @@ Elegant, Modular, and Responsive
         </div>
       </div>
       <p class="footer-desc">
-        Empowering creators and businesses with innovative digital solutions — from automation and AI systems to data analytics and online business tools.
+        Empowering creators and businesses through data, AI, and automation —
+        helping them build systems that grow smarter every day.
       </p>
+
+      <!-- 🌐 Social Media -->
       <div class="social-icons">
-        <a href="https://linkedin.com/in/bitaashoori" target="_blank" aria-label="LinkedIn">
+        <a href="https://linkedin.com/in/bitaashoori" target="_blank" rel="noopener" aria-label="LinkedIn">
           <i class="fab fa-linkedin-in"></i>
         </a>
-        <a href="https://youtube.com/@bitadigital" target="_blank" aria-label="YouTube">
+        <a href="https://youtube.com/@bitadigital" target="_blank" rel="noopener" aria-label="YouTube">
           <i class="fab fa-youtube"></i>
         </a>
-        <a href="https://instagram.com/bitadigitalhub" target="_blank" aria-label="Instagram">
+        <a href="https://instagram.com/bitadigitalhub" target="_blank" rel="noopener" aria-label="Instagram">
           <i class="fab fa-instagram"></i>
         </a>
       </div>
     </div>
 
-    <!-- 🔹 Column 2: Quick Links -->
+    <!-- 🔹 Quick Links -->
     <div class="footer-col">
       <h4>Quick Links</h4>
       <ul>
@@ -43,7 +45,7 @@ Elegant, Modular, and Responsive
       </ul>
     </div>
 
-    <!-- 🔹 Column 3: Services -->
+    <!-- 🔹 Services -->
     <div class="footer-col">
       <h4>Services</h4>
       <ul>
@@ -55,7 +57,7 @@ Elegant, Modular, and Responsive
       </ul>
     </div>
 
-    <!-- 🔹 Column 4: Contact Info -->
+    <!-- 🔹 Contact Info -->
     <div class="footer-col">
       <h4>Contact Info</h4>
       <ul class="contact-info">
@@ -63,25 +65,28 @@ Elegant, Modular, and Responsive
         <li><i class="fas fa-map-marker-alt"></i> Vancouver, Canada</li>
       </ul>
     </div>
-
   </div>
 
-  <!-- 🔹 Footer Bottom -->
+  <!-- 🔹 Footer Bottom (Aligned with Grid) -->
   <div class="footer-bottom">
-    <span>© 2025 Bita Digital Hub. All rights reserved.</span>
-    <div class="footer-links">
-      <a href="#privacy">Privacy Policy</a>
-      <a href="#terms">Terms of Service</a>
-      <a href="#cookies">Cookie Policy</a>
+    <div class="footer-bottom-inner">
+      <span>© 2025 Bita Digital Hub. All rights reserved.</span>
+      <div class="footer-links">
+        <a href="#privacy">Privacy Policy</a>
+        <a href="#terms">Terms of Service</a>
+        <a href="#cookies">Cookie Policy</a>
+      </div>
     </div>
   </div>
 </footer>
 
-<!-- Font Awesome Icons -->
+<!-- =========================================================
+📦 Dependencies
+========================================================= -->
 <script src="https://kit.fontawesome.com/4c45a6b4c1.js" crossorigin="anonymous"></script>
 
-<!-- Smooth Scroll for Footer Links -->
 <script>
+  // Smooth scroll for internal footer links
   document.addEventListener('click', (e) => {
     if (e.target.matches('.footer a[href^="#"]')) {
       e.preventDefault();

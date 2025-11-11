@@ -449,6 +449,33 @@ img {
   max-width: 1200px;
   margin: 0 auto;
 }
+.footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  margin-top: 2rem;
+  padding-top: 1rem;
+  color: #94a3b8;
+}
+
+.footer-bottom-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.footer-links a {
+  color: #93c5fd;
+  text-decoration: none;
+  margin-right: 1rem;
+  transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: #bfdbfe;
+}
 
 /* =========================================================
 📱 RESPONSIVE
@@ -533,4 +560,39 @@ img {
     background: #f8fafc;
     color: var(--primary);
   }
+}
+.footer.dark {
+  background: #0f172a;
+  color: #cbd5e1;
+  padding: 4rem 2rem 2rem;
+  font-size: 0.95rem;
+}
+
+.footer-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-bottom {
+  max-width: 1200px;
+  margin: 2rem auto 0;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  text-align: left;
+  color: #94a3b8;
+  font-size: 0.9rem;
+}
+
+.footer-bottom a {
+  color: #93c5fd;
+  text-decoration: none;
+  margin-right: 1rem;
+  transition: color 0.3s ease;
+}
+
+.footer-bottom a:hover {
+  color: #bfdbfe;
 }
