@@ -38,47 +38,61 @@
   </section>
 
   <!-- 🧰 ZIP / UnZIP TOOL -->
-  <main class="tool-page">
-    <div class="tool-card gradient-gray">
-      <h2>ZIP & Unzip Files 📦</h2>
-      <p>Compress or extract ZIP files instantly — safe, simple, and fast.</p>
-
-      <!-- 🌐 Language Buttons -->
-      <div class="lang-btns">
-        <button id="btnEnglish" class="active">English</button>
-        <button id="btnFarsi">فارسی</button>
-      </div>
-
-      <!-- 🗂️ Form -->
-      <div class="tool-form">
-        <label for="modeSelect">Select mode:</label>
-        <select id="modeSelect" class="select-input">
-          <option value="zip">Compress files (ZIP)</option>
-          <option value="unzip">Extract ZIP file</option>
-        </select>
-
-        <label for="fileInput">Choose file(s):</label>
-        <input type="file" id="fileInput" multiple class="file-input" />
-
-        <button id="processBtn" class="btn primary">Start</button>
-
-        <div id="output" class="output-box hidden">
-          <p id="resultMsg"></p>
-          <a id="downloadLink" href="#" class="btn outline" download="bita-archive.zip">⬇️ Download</a>
-        </div>
-      </div>
-    </div>
-
-    <!-- 📢 Ad -->
-    <div class="ad-container">
+  <main class="tool-layout">
+    <!-- Left Ad -->
+    <aside class="ad-side">
       <ins class="adsbygoogle"
            style="display:block"
            data-ad-client="ca-pub-3215014361489762"
-           data-ad-slot="3333333333"
+           data-ad-slot="1111111111"
            data-ad-format="auto"
            data-full-width-responsive="true"></ins>
       <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-    </div>
+    </aside>
+
+    <!-- Tool Core -->
+    <section class="tool-center">
+      <div class="tool-card gradient-gray">
+        <h2>ZIP & Unzip Files 📦</h2>
+        <p>Compress or extract ZIP files instantly — safe, simple, and fast.</p>
+
+        <!-- 🌐 Language Buttons -->
+        <div class="lang-btns">
+          <button id="btnEnglish" class="active">English</button>
+          <button id="btnFarsi">فارسی</button>
+        </div>
+
+        <!-- 🗂️ Form -->
+        <div class="tool-form">
+          <label for="modeSelect">Select mode:</label>
+          <select id="modeSelect" class="select-input">
+            <option value="zip">Compress files (ZIP)</option>
+            <option value="unzip">Extract ZIP file</option>
+          </select>
+
+          <label for="fileInput">Choose file(s):</label>
+          <input type="file" id="fileInput" multiple class="file-input" />
+
+          <button id="processBtn" class="btn primary">Start</button>
+
+          <div id="output" class="output-box hidden">
+            <p id="resultMsg"></p>
+            <a id="downloadLink" href="#" class="btn outline" download="bita-archive.zip">⬇️ Download</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Right Ad -->
+    <aside class="ad-side">
+      <ins class="adsbygoogle"
+           style="display:block"
+           data-ad-client="ca-pub-3215014361489762"
+           data-ad-slot="2222222222"
+           data-ad-format="auto"
+           data-full-width-responsive="true"></ins>
+      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    </aside>
   </main>
 
   <!-- 🦶 Shared Footer -->

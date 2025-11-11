@@ -1,5 +1,5 @@
 /* =========================================================
-🌐 Bita Digital Hub – Global Stylesheet (Pastel Edition v6)
+🌐 Bita Digital Hub – Global Stylesheet (Pastel Edition v6.1)
 Author: Bita Ashoori
 Elegant • Unified • Responsive • Accessible
 ========================================================= */
@@ -41,6 +41,7 @@ img {
 a {
   color: inherit;
   text-decoration: none;
+  transition: color 0.2s ease;
 }
 
 /* =========================================================
@@ -94,7 +95,6 @@ a {
 .nav-links a {
   font-weight: 500;
   color: var(--text-dark);
-  transition: color 0.3s ease;
 }
 
 .nav-links a:hover,
@@ -181,7 +181,7 @@ a {
 }
 
 /* =========================================================
-🏠 SECTIONS
+🏠 SECTION STRUCTURE
 ========================================================= */
 .section {
   padding: 6rem 2rem;
@@ -208,7 +208,7 @@ a {
 }
 
 /* =========================================================
-✨ HERO
+✨ HERO SECTION
 ========================================================= */
 .hero {
   background: linear-gradient(to bottom, #eef2ff, #fff);
@@ -230,7 +230,6 @@ a {
   font-size: 1.1rem;
 }
 
-/* --- Buttons --- */
 .cta-buttons {
   display: flex;
   justify-content: center;
@@ -242,9 +241,10 @@ a {
   font-weight: 600;
   padding: 0.9rem 1.6rem;
   border-radius: var(--radius);
-  text-decoration: none;
-  transition: all 0.3s ease;
   font-size: 1rem;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
 
 .btn.primary {
@@ -269,7 +269,7 @@ a {
 }
 
 /* =========================================================
-💡 ABOUT
+💡 ABOUT SECTION
 ========================================================= */
 .about-grid {
   display: grid;
@@ -288,18 +288,16 @@ a {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
 }
 
 .about-icon img {
   width: 72px;
-  height: auto;
   margin-bottom: 1.5rem;
   filter: drop-shadow(0 3px 6px rgba(0, 0, 0, 0.25));
 }
 
 /* =========================================================
-💎 CARDS
+💎 CARDS (TOOLS & SERVICES)
 ========================================================= */
 .cards,
 .tools-grid {
@@ -322,85 +320,104 @@ a {
   box-shadow: var(--shadow-lg);
 }
 
-/* --- Gradients --- */
+/* --- Gradient Themes --- */
 .gradient-blue { background: linear-gradient(145deg, #edf3ff, #f5f8ff); border-left: 5px solid #2563eb; }
 .gradient-green { background: linear-gradient(145deg, #ecfdf5, #f6fff9); border-left: 5px solid #16a34a; }
 .gradient-yellow { background: linear-gradient(145deg, #fff9eb, #fffdf5); border-left: 5px solid #f59e0b; }
 .gradient-pink { background: linear-gradient(145deg, #fdf2f8, #fff5f9); border-left: 5px solid #db2777; }
-.gradient-orange { background: linear-gradient(145deg, #fff7ed, #fffaf3); border-left: 5px solid #fb923c; }
 .gradient-cyan { background: linear-gradient(145deg, #ecfeff, #f0f9ff); border-left: 5px solid #06b6d4; }
 .gradient-purple { background: linear-gradient(145deg, #f5f3ff, #faf5ff); border-left: 5px solid #8b5cf6; }
 .gradient-gray { background: linear-gradient(145deg, #f3f4f6, #ffffff); border-left: 5px solid #64748b; }
 
 /* =========================================================
-📩 CONTACT FORM
+🧰 TOOL PAGE LAYOUT
 ========================================================= */
-.contact-form {
+.brand-header {
+  text-align: center;
+  margin-top: 6rem;
+  margin-bottom: 2rem;
+}
+
+.brand-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.brand-logo {
+  width: 80px;
+  height: auto;
+}
+
+.brand-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--text-dark);
+}
+
+.brand-subtitle {
+  color: var(--text-mid);
+  font-size: 1rem;
+}
+
+.tool-layout {
+  display: grid;
+  grid-template-columns: 1fr minmax(300px, 700px) 1fr;
+  gap: 2rem;
+  padding: 4rem 2rem;
+  align-items: start;
+  background: #f9fafb;
+}
+
+.tool-center {
+  display: flex;
+  justify-content: center;
+}
+
+.tool-card {
   background: var(--white);
+  padding: 2.5rem 2rem;
   border-radius: var(--radius);
   box-shadow: var(--shadow-md);
-  padding: 2.5rem 2rem;
-  max-width: 720px;
-  margin: 0 auto;
-  text-align: left;
+  text-align: center;
 }
 
-.form-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 1.2rem;
-}
-
-.contact-form label {
-  font-weight: 600;
+.tool-card h2 {
   color: var(--text-dark);
-  margin-bottom: 0.4rem;
-  display: block;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
 }
 
-.contact-form input,
-.contact-form select,
-.contact-form textarea {
-  width: 100%;
+.tool-card p {
+  color: var(--text-mid);
+  margin-bottom: 1.5rem;
+}
+
+.tool-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.lang-btns {
+  margin-bottom: 1.5rem;
+}
+
+.lang-btns button {
+  background: var(--bg);
   border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 0.9rem 1rem;
-  font-size: 1rem;
-  background: #f9fafb;
-  color: var(--text-dark);
-  margin-bottom: 1.2rem;
+  border-radius: 8px;
+  padding: 0.4rem 1rem;
+  cursor: pointer;
+  font-weight: 500;
   transition: all 0.2s ease;
 }
 
-.contact-form input:focus,
-.contact-form select:focus,
-.contact-form textarea:focus {
-  border-color: var(--primary);
-  background: #fff;
-  outline: none;
-  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
-}
-
-.contact-form textarea {
-  resize: none;
-  min-height: 130px;
-}
-
-.contact-form button {
+.lang-btns button.active {
   background: var(--primary);
-  color: var(--white);
-  border: none;
-  border-radius: var(--radius);
-  font-weight: 600;
-  padding: 1rem 1.6rem;
-  width: 100%;
-  cursor: pointer;
-  transition: background 0.3s ease, transform 0.2s ease;
-}
-
-.contact-form button:hover {
-  background: var(--primary-hover);
-  transform: translateY(-2px);
+  color: #fff;
 }
 
 /* =========================================================
@@ -486,210 +503,5 @@ a {
 
   .cta-buttons { flex-direction: column; }
   .contact-form { padding: 1.8rem 1.2rem; }
-}
-/* =========================================================
-🧭 BREADCRUMB NAVIGATION
-========================================================= */
-.breadcrumb-nav {
-  background: linear-gradient(to right, #f9fafb, #f1f5f9);
-  border-bottom: 1px solid var(--border);
-  padding: 0.8rem 2rem;
-  margin-top: 70px; /* below fixed header */
-}
-
-.breadcrumb {
-  max-width: 1100px;
-  margin: 0 auto;
-  font-size: 0.95rem;
-  color: var(--text-mid);
-  display: flex;
-  align-items: center;
-  gap: 0.4rem;
-}
-
-.breadcrumb a {
-  color: var(--primary);
-  text-decoration: none;
-  transition: color 0.2s ease;
-}
-
-.breadcrumb a:hover {
-  color: var(--primary-hover);
-}
-
-.breadcrumb .current {
-  color: var(--text-dark);
-  font-weight: 500;
-}
-/* =========================================================
-🧰 TOOLS PAGE LAYOUT
-========================================================= */
-.tool-page {
-  max-width: 900px;
-  margin: 6rem auto;
-  padding: 3rem 2rem;
-  background: var(--white);
-  border-radius: 16px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
-  text-align: center;
-}
-
-.tool-page h1 {
-  font-size: 2rem;
-  font-weight: 700;
-  color: var(--primary);
-  margin-bottom: 0.6rem;
-}
-
-.tool-page p {
-  color: var(--text-mid);
-  margin-bottom: 2rem;
-  font-size: 1.05rem;
-  line-height: 1.6;
-}
-
-.tool-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1rem;
-}
-
-/* --- Inputs & Buttons --- */
-.tool-container input,
-.tool-container select,
-.tool-container textarea,
-.tool-container button {
-  font-family: "Poppins", sans-serif;
-  font-size: 1rem;
-  border-radius: 8px;
-  border: 1px solid var(--border);
-  padding: 0.7rem 1rem;
-  transition: all 0.2s ease;
-}
-
-.tool-container input:focus,
-.tool-container select:focus,
-.tool-container textarea:focus {
-  outline: none;
-  border-color: var(--primary);
-  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
-}
-
-.tool-container button {
-  background: var(--primary);
-  color: var(--white);
-  font-weight: 600;
-  cursor: pointer;
-}
-
-.tool-container button:hover {
-  background: var(--primary-hover);
-  transform: translateY(-2px);
-}
-
-/* --- Output Box --- */
-.output-box {
-  margin-top: 1rem;
-  padding: 1rem;
-  background: #f8fafc;
-  border: 1px dashed var(--border);
-  border-radius: 10px;
-  word-wrap: break-word;
-  color: var(--text-dark);
-  max-width: 100%;
-  font-family: monospace;
-}
-
-/* --- Checkbox Row --- */
-.option-row {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 0.8rem 1.2rem;
-  margin: 1rem 0;
-  color: var(--text-dark);
-}
-
-/* --- Gradient Background by Tool Type --- */
-body[data-tool="password-generator"] .tool-page { background: linear-gradient(145deg, #edf3ff, #f5f8ff); }
-body[data-tool="csv-cleaner"] .tool-page { background: linear-gradient(145deg, #ecfeff, #f0f9ff); }
-body[data-tool="zip-unzip"] .tool-page { background: linear-gradient(145deg, #f3f4f6, #ffffff); }
-body[data-tool="audio-transcriber"] .tool-page { background: linear-gradient(145deg, #f5f3ff, #faf5ff); }
-body[data-tool="file-converter"] .tool-page { background: linear-gradient(145deg, #fff7ed, #fffaf3); }
-
-/* ================================================
-🎨 TOOLS PAGE FIXES
-================================================ */
-.brand-header {
-  text-align: center;
-  margin-top: 6rem;
-  margin-bottom: 2rem;
-}
-
-.brand-inner {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.8rem;
-}
-
-.brand-logo {
-  width: 80px;
-  height: auto;
-}
-
-.brand-title {
-  font-size: 1.8rem;
-  font-weight: 700;
-  color: var(--text-dark);
-}
-
-.brand-subtitle {
-  color: var(--text-mid);
-  font-size: 1rem;
-}
-
-.tool-page {
-  max-width: 850px;
-  margin: 3rem auto 5rem;
-  padding: 2rem;
-  background: #fff;
-  border-radius: 14px;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
-}
-
-.tool-card h2 {
-  color: var(--text-dark);
-  font-weight: 700;
-  margin-bottom: 0.5rem;
-}
-
-.tool-card p {
-  color: var(--text-mid);
-  margin-bottom: 1.5rem;
-}
-
-.tool-form {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-
-.lang-btns {
-  margin-bottom: 1.5rem;
-}
-
-.lang-btns button {
-  background: var(--bg-light);
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  padding: 0.4rem 1rem;
-  cursor: pointer;
-  font-weight: 500;
-}
-
-.lang-btns button.active {
-  background: var(--primary);
-  color: #fff;
+  .tool-layout { grid-template-columns: 1fr; }
 }
