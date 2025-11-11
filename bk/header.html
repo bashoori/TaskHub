@@ -1,0 +1,99 @@
+<!-- =========================================================
+🧭 Bita Digital Hub – Responsive Header (v3)
+Full-width header with language dropdown + smooth scroll
+========================================================= -->
+
+<header class="navbar modern">
+  <div class="nav-inner">
+    <!-- 🔹 Brand -->
+    <div class="nav-left">
+      <img src="assets/taskhub-logo.svg" alt="Bita Digital Hub Logo" width="36" height="36" />
+      <div class="brand-info">
+        <a href="index.html#home" class="brand">Bita Digital Hub</a>
+        <p class="tagline">Learn. Build. Automate. Succeed.</p>
+      </div>
+    </div>
+
+    <!-- 🔹 Main Navigation -->
+    <nav class="nav-links" aria-label="Main navigation">
+      <a href="index.html#home" class="active">Home</a>
+      <a href="index.html#about">About</a>
+      <a href="index.html#services">Services</a>
+      <a href="index.html#courses">Courses</a>
+      <a href="index.html#tools">Tools</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+
+    <!-- 🔹 Right Actions -->
+    <div class="nav-actions">
+      <div class="lang-switch">
+        <button class="lang-toggle" id="lang-btn" aria-haspopup="listbox" aria-expanded="false">
+          <img src="https://flagcdn.com/16x12/gb.png" alt="English flag" /> English ▾
+        </button>
+        <ul class="lang-menu" id="lang-menu" role="listbox">
+          <li><a href="index.html"><img src="https://flagcdn.com/16x12/gb.png" /> English</a></li>
+          <li><a href="index-fa.html"><img src="https://flagcdn.com/16x12/ir.png" /> فارسی</a></li>
+        </ul>
+      </div>
+      <a href="contact.html" class="btn-primary get-started">Get Started</a>
+    </div>
+
+    <!-- ☰ Mobile Menu -->
+    <button class="menu-toggle" aria-label="Toggle navigation">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+</header>
+
+<!-- =========================================================
+🔧 Header Interactions
+========================================================= -->
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    // 🌍 Language Dropdown
+    const langBtn = document.getElementById("lang-btn");
+    const langMenu = document.getElementById("lang-menu");
+
+    if (langBtn && langMenu) {
+      langBtn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        langMenu.classList.toggle("show");
+        langBtn.setAttribute("aria-expanded", langMenu.classList.contains("show"));
+      });
+
+      document.addEventListener("click", (e) => {
+        if (!langBtn.contains(e.target)) {
+          langMenu.classList.remove("show");
+          langBtn.setAttribute("aria-expanded", "false");
+        }
+      });
+    }
+
+    // 📱 Mobile Menu Toggle
+    const menuToggle = document.querySelector(".menu-toggle");
+    const navLinks = document.querySelector(".nav-links");
+
+    if (menuToggle && navLinks) {
+      menuToggle.addEventListener("click", () => {
+        navLinks.classList.toggle("show");
+        menuToggle.classList.toggle("open");
+      });
+    }
+
+    // 🌀 Smooth Scroll
+    document.querySelectorAll('.nav-links a[href^="#"]').forEach((link) => {
+      link.addEventListener("click", (e) => {
+        const href = link.getAttribute("href");
+        const target = document.querySelector(href);
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: "smooth" });
+          navLinks.classList.remove("show");
+          menuToggle.classList.remove("open");
+        }
+      });
+    });
+  });
+</script>
