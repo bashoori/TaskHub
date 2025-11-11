@@ -128,3 +128,254 @@ footer {
   padding: 1rem;
   font-size: 0.9rem;
 }
+/* =========================
+   🦶 Footer Styling
+========================= */
+.footer.dark {
+  background: #0f172a;
+  color: #cbd5e1;
+  padding: 4rem 2rem 2rem;
+  font-size: 0.95rem;
+}
+
+.footer-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-col h4 {
+  color: #fff;
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+}
+
+.footer-col ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-col ul li {
+  margin-bottom: 0.5rem;
+}
+
+.footer-col a {
+  color: #94a3b8;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-col a:hover {
+  color: #38bdf8;
+}
+
+/* Brand Column */
+.footer-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.footer-logo h3 {
+  color: #fff;
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+.footer-logo p {
+  color: #94a3b8;
+  margin: 0;
+  font-size: 0.85rem;
+}
+
+.footer-desc {
+  margin: 1rem 0;
+  line-height: 1.6;
+}
+
+/* Social Icons */
+.social-icons a {
+  display: inline-block;
+  color: #cbd5e1;
+  background: #1e293b;
+  margin-right: 0.5rem;
+  padding: 0.5rem 0.6rem;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+}
+
+.social-icons a:hover {
+  background: #38bdf8;
+  color: #0f172a;
+}
+
+/* Contact Info */
+.contact-info li {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.contact-info i {
+  color: #38bdf8;
+  width: 18px;
+}
+
+/* Bottom Section */
+.footer-bottom {
+  border-top: 1px solid #1e293b;
+  margin-top: 2rem;
+  padding-top: 1rem;
+  text-align: center;
+  font-size: 0.85rem;
+  color: #94a3b8;
+}
+
+.footer-links {
+  margin-top: 0.5rem;
+}
+
+.footer-links a {
+  color: #94a3b8;
+  margin: 0 0.6rem;
+  text-decoration: none;
+}
+
+.footer-links a:hover {
+  color: #38bdf8;
+}
+/* =========================
+   🧭 Header Styling
+========================= */
+.navbar.modern {
+  width: 100%;
+  background: #ffffff;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 3rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+}
+
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.brand-info .brand {
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: #1e3a8a;
+  text-decoration: none;
+}
+
+.brand-info .tagline {
+  font-size: 0.85rem;
+  color: #475569;
+  margin: 0;
+  line-height: 1.2;
+}
+
+/* Navigation */
+.nav-links {
+  display: flex;
+  gap: 2rem;
+}
+
+.nav-links a {
+  color: #334155;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  color: #1e3a8a;
+}
+
+/* Language + Button */
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* Language dropdown */
+.lang-switch {
+  position: relative;
+}
+
+.lang-toggle {
+  background: #f1f5f9;
+  border: none;
+  border-radius: 8px;
+  padding: 0.6rem 0.9rem;
+  font-weight: 500;
+  color: #1e293b;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.lang-toggle img {
+  width: 16px;
+  height: 12px;
+}
+
+.lang-menu {
+  display: none;
+  position: absolute;
+  top: 110%;
+  right: 0;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  list-style: none;
+  padding: 0.5rem 0;
+  width: 140px;
+  z-index: 999;
+}
+
+.lang-menu.show {
+  display: block;
+}
+
+.lang-menu li a {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #334155;
+  padding: 0.4rem 0.9rem;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+
+.lang-menu li a:hover {
+  background: #f1f5f9;
+}
+
+/* Get Started button */
+.btn-primary.get-started {
+  background: #1e3a8a;
+  color: #fff;
+  padding: 0.7rem 1.4rem;
+  border-radius: 8px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.3s;
+}
+
+.btn-primary.get-started:hover {
+  background: #2563eb;
+}
+

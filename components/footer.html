@@ -1,29 +1,39 @@
 <!-- =========================================================
-🦶 Footer Component – Bita Digital Hub
-Clean, Bilingual-ready, and Modular (for one-page layout)
+🦶 Footer Component – Bita Digital Hub (Dark Edition)
+Elegant, Modular, and Responsive
 ========================================================= -->
 
-<footer class="footer">
+<footer class="footer dark">
   <div class="footer-container">
-    
-    <!-- 🔹 Column 1: Brand Info -->
-    <div class="footer-col">
-      <h3>Bita Digital Hub</h3>
-      <p>
-        Empowering creators and professionals with automation,
-        analytics, and online-business solutions.
-      </p>
 
-      <div class="social-links">
-        <a href="https://linkedin.com/in/bitaashoori" target="_blank">LinkedIn</a>
-        <a href="https://youtube.com/@bitadigital" target="_blank">YouTube</a>
-        <a href="https://instagram.com/bitadigitalmarketer" target="_blank">Instagram</a>
+    <!-- 🔹 Column 1: Brand Info -->
+    <div class="footer-col brand">
+      <div class="footer-logo">
+        <img src="assets/taskhub-logo.svg" alt="Bita Digital Hub Logo" width="40" height="40" />
+        <div>
+          <h3>Bita Digital Hub</h3>
+          <p>Digital Transformation</p>
+        </div>
+      </div>
+      <p class="footer-desc">
+        Empowering creators and businesses with innovative digital solutions — from automation and AI systems to data analytics and online business tools.
+      </p>
+      <div class="social-icons">
+        <a href="https://linkedin.com/in/bitaashoori" target="_blank" aria-label="LinkedIn">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+        <a href="https://youtube.com/@bitadigital" target="_blank" aria-label="YouTube">
+          <i class="fab fa-youtube"></i>
+        </a>
+        <a href="https://instagram.com/bitadigitalhub" target="_blank" aria-label="Instagram">
+          <i class="fab fa-instagram"></i>
+        </a>
       </div>
     </div>
 
     <!-- 🔹 Column 2: Quick Links -->
     <div class="footer-col">
-      <h4>Explore</h4>
+      <h4>Quick Links</h4>
       <ul>
         <li><a href="#home">Home</a></li>
         <li><a href="#about">About</a></li>
@@ -33,14 +43,28 @@ Clean, Bilingual-ready, and Modular (for one-page layout)
       </ul>
     </div>
 
-    <!-- 🔹 Column 3: Contact Info -->
+    <!-- 🔹 Column 3: Services -->
     <div class="footer-col">
-      <h4>Contact</h4>
+      <h4>Services</h4>
       <ul>
-        <li><strong>Email:</strong> contact@bitadigitalhub.com</li>
-        <li><strong>Location:</strong> Vancouver, Canada</li>
+        <li>AI Personal Branding</li>
+        <li>Website Creation</li>
+        <li>Data Analytics & Dashboards</li>
+        <li>Telegram Robots</li>
+        <li>Online Franchise Setup</li>
       </ul>
     </div>
+
+    <!-- 🔹 Column 4: Contact Info -->
+    <div class="footer-col">
+      <h4>Contact Info</h4>
+      <ul class="contact-info">
+        <li><i class="fas fa-envelope"></i> contact@bitadigitalhub.com</li>
+        <li><i class="fas fa-phone"></i> +1 (604) 724-6960</li>
+        <li><i class="fas fa-map-marker-alt"></i> Vancouver, Canada</li>
+      </ul>
+    </div>
+
   </div>
 
   <!-- 🔹 Footer Bottom -->
@@ -48,15 +72,17 @@ Clean, Bilingual-ready, and Modular (for one-page layout)
     <span>© 2025 Bita Digital Hub. All rights reserved.</span>
     <div class="footer-links">
       <a href="#privacy">Privacy Policy</a>
-      <a href="#terms">Terms</a>
-      <a href="#cookies">Cookies</a>
+      <a href="#terms">Terms of Service</a>
+      <a href="#cookies">Cookie Policy</a>
     </div>
   </div>
 </footer>
 
-<!-- 🔁 Footer Script -->
+<!-- Font Awesome Icons -->
+<script src="https://kit.fontawesome.com/4c45a6b4c1.js" crossorigin="anonymous"></script>
+
+<!-- Smooth Scroll for Footer Links -->
 <script>
-  // Smooth scrolling for footer links
   document.addEventListener('click', (e) => {
     if (e.target.matches('.footer a[href^="#"]')) {
       e.preventDefault();

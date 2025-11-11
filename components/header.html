@@ -1,9 +1,14 @@
-<!-- 🧭 Header / Navbar Component -->
-<header class="navbar">
+<!-- =========================================================
+🧭 Header / Navbar Component – Bita Digital Hub (Modern Edition)
+Clean, professional SaaS-style navigation
+========================================================= -->
+
+<header class="navbar modern">
   <div class="nav-left">
-    <img src="assets/taskhub-logo.svg" alt="Bita Digital Hub Logo" width="36" height="36" />
-    <div class="brand-group">
+    <img src="assets/taskhub-logo.svg" alt="Bita Digital Hub Logo" width="38" height="38" />
+    <div class="brand-info">
       <a href="#home" class="brand">Bita Digital Hub</a>
+      <p class="tagline">Innovative Digital Solutions</p>
     </div>
   </div>
 
@@ -21,6 +26,7 @@
     <!-- 🌍 Language Dropdown -->
     <div class="lang-switch">
       <button class="lang-toggle">
+        <i class="fas fa-globe"></i>
         <img src="https://flagcdn.com/16x12/gb.png" alt="English flag" /> English ▾
       </button>
       <ul class="lang-menu">
@@ -36,27 +42,23 @@
         </li>
       </ul>
     </div>
-    <a href="login.html" class="btn-primary get-started">Login</a>
+
+    <!-- 🚀 Get Started -->
+    <a href="#contact" class="btn-primary get-started">Get Started</a>
   </div>
 </header>
 
 <!-- 🔁 Header Script -->
 <script>
-  // 🌐 Language Dropdown Toggle
+  // 🌐 Language Dropdown
   const langToggle = document.querySelector('.lang-toggle');
   const langMenu = document.querySelector('.lang-menu');
-
-  langToggle?.addEventListener('click', () => {
-    langMenu.classList.toggle('show');
-  });
-
+  langToggle?.addEventListener('click', () => langMenu.classList.toggle('show'));
   document.addEventListener('click', (e) => {
-    if (!langToggle?.contains(e.target)) {
-      langMenu.classList.remove('show');
-    }
+    if (!langToggle?.contains(e.target)) langMenu.classList.remove('show');
   });
 
-  // 🌍 Auto-redirect for Persian users
+  // 🌍 Auto-redirect Persian users
   const userLang = navigator.language || navigator.userLanguage;
   if (userLang && userLang.toLowerCase().startsWith('fa')) {
     if (!window.location.href.includes('index-fa.html')) {
@@ -64,28 +66,15 @@
     }
   }
 
-  // 🟢 Highlight active nav link based on scroll
-  document.addEventListener('scroll', () => {
-    const sections = document.querySelectorAll('section[id]');
-    const scrollPos = window.scrollY + 100;
-    sections.forEach(sec => {
-      const top = sec.offsetTop;
-      const height = sec.offsetHeight;
-      const id = sec.getAttribute('id');
-      const link = document.querySelector(`.nav-links a[href="#${id}"]`);
-      if (scrollPos >= top && scrollPos < top + height) {
-        document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
-        if (link) link.classList.add('active');
-      }
-    });
-  });
-
-  // 🧭 Smooth scroll for same-page links
+  // 🧭 Smooth Scroll
   document.addEventListener('click', (e) => {
-    if (e.target.matches('.nav-links a[href^="#"]')) {
+    if (e.target.matches('.nav-links a[href^="#"], .get-started[href^="#"]')) {
       e.preventDefault();
       const target = document.querySelector(e.target.getAttribute('href'));
       if (target) target.scrollIntoView({ behavior: "smooth" });
     }
   });
 </script>
+
+<!-- Font Awesome for globe icon -->
+<script src="https://kit.fontawesome.com/4c45a6b4c1.js" crossorigin="anonymous"></script>
