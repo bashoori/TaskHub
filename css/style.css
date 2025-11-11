@@ -324,7 +324,30 @@ img {
   background: linear-gradient(145deg, #fdf2f8, #fff5f9);
   border-left: 5px solid #db2777;
 }
+.gradient-orange {
+  background: linear-gradient(145deg, #fff1e6, #fff8f3);
+  border-left: 5px solid #f97316;
+}
 
+.gradient-purple {
+  background: linear-gradient(145deg, #ede9fe, #f7f5ff);
+  border-left: 5px solid #7c3aed;
+}
+
+.gradient-cyan {
+  background: linear-gradient(145deg, #e0faff, #f4fdff);
+  border-left: 5px solid #06b6d4;
+}
+
+.gradient-red {
+  background: linear-gradient(145deg, #ffe4e6, #fff7f7);
+  border-left: 5px solid #ef4444;
+}
+
+.gradient-gray {
+  background: linear-gradient(145deg, #f3f4f6, #ffffff);
+  border-left: 5px solid #64748b;
+}
 /* =========================================================
 📩 CONTACT FORM (Fixed Width)
 ========================================================= */
