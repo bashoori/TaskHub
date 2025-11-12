@@ -30,7 +30,6 @@
         <h2>QR Generator 🟨</h2>
         <p>Create QR codes for URLs or text — download instantly as PNG.</p>
 
-        <!-- prevent form submit reload -->
         <form class="tool-form" onsubmit="return false;">
           <label for="qrText">Enter text or URL:</label>
           <input
@@ -47,9 +46,7 @@
 
           <div id="output" class="output-box hidden">
             <canvas id="qrCanvas"></canvas>
-            <a id="downloadLink" class="secondary-btn" download="bita-qr.png">
-              Download PNG
-            </a>
+            <a id="downloadLink" class="secondary-btn" download="bita-qr.png">Download PNG</a>
           </div>
         </form>
       </div>
@@ -66,8 +63,59 @@
       .then(html => { document.getElementById("footer-placeholder").innerHTML = html; });
   </script>
 
-  <!-- QR library must load before our script -->
-  <script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.3/build/qrcode.min.js" defer></script>
-  <script src="../js/qr-main.js" defer></script>
+  <!-- QR library -->
+  <script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.3/build/qrcode.min.js"></script>
+
+  <!-- working script -->
+  <script>
+    window.addEventListener("DOMContentLoaded", function () {
+      const input = document.getElementById("qrText");
+      const btn = document.getElementById("generateQRBtn");
+      const outputBox = document.getElementById("output");
+      const canvas = document.getElementById("qrCanvas");
+      const downloadLink = document.getElementById("downloadLink");
+
+      // safety: check library
+      if (typeof QRCode === "undefined") {
+        console.error("QRCode library not loaded.");
+        return;
+      }
+
+      btn.addEventListener("click", function () {
+        const text = (input.value || "").trim();
+        if (!text) {
+          alert("Please enter a URL or text.");
+          return;
+        }
+
+        // clear old QR
+        const ctx = canvas.getContext("2d");
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        QRCode.toCanvas(
+          canvas,
+          text,
+          {
+            width: 256,
+            margin: 2,
+            errorCorrectionLevel: "H",
+          },
+          function (err) {
+            if (err) {
+              console.error(err);
+              alert("Could not generate QR.");
+              return;
+            }
+
+            outputBox.classList.remove("hidden");
+
+            // make download work
+            const dataURL = canvas.toDataURL("image/png");
+            downloadLink.href = dataURL;
+          }
+        );
+      });
+    });
+  </script>
 </body>
 </html>
