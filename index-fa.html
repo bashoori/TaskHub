@@ -34,11 +34,13 @@
       direction: ltr;
     }
 
+    /* general RTL direction for content */
     main, section, h1, h2, h3, p, a, button, input, textarea {
       direction: rtl;
       text-align: center;
     }
 
+    /* ---------- HERO ---------- */
     .hero {
       text-align: center;
       padding: 6rem 1rem 5rem;
@@ -52,12 +54,43 @@
       flex-wrap: wrap;
     }
 
+    /* ---------- BUTTONS ---------- */
     .btn.primary { background: #1e3a8a; color: #fff; }
     .btn.primary:hover { background: #2563eb; }
     .btn.outline { border: 2px solid #1e3a8a; color: #1e3a8a; background: transparent; }
     .btn.outline:hover { background: #1e3a8a; color: #fff; }
 
-    /* Keep gradient colors same as English */
+    /* ---------- CARDS & GRID ---------- */
+    .tools-grid,
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+      text-align: center;
+    }
+
+    .card {
+      border-radius: 16px;
+      padding: 2rem 1.5rem;
+      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.08);
+      background: #fff;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      color: #0f172a;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12);
+    }
+
+    .card-icon {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 1rem;
+    }
+
+    /* ---------- GRADIENTS ---------- */
     .gradient-blue   { background: linear-gradient(145deg, #eef4ff, #f7f9ff); border-right: 5px solid #2563eb; }
     .gradient-pink   { background: linear-gradient(145deg, #fff5f7, #fff8fb); border-right: 5px solid #db2777; }
     .gradient-cyan   { background: linear-gradient(145deg, #ecfeff, #f0f9ff); border-right: 5px solid #06b6d4; }
@@ -66,15 +99,39 @@
     .gradient-yellow { background: linear-gradient(145deg, #fffbea, #fffdf5); border-right: 5px solid #f59e0b; }
     .gradient-gray   { background: linear-gradient(145deg, #f3f4f6, #ffffff); border-right: 5px solid #64748b; }
 
-    .ad-container {
-      text-align: center;
+    /* ---------- CONTACT FORM ---------- */
+    .contact-form {
+      max-width: 700px;
       margin: 2rem auto;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1rem;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 0.7rem 0.9rem;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      background: #f9fafb;
+      font-family: inherit;
+    }
+
+    textarea {
+      height: 120px;
+      resize: vertical;
     }
   </style>
 </head>
 
 <body>
-  <!-- 🧭 Header (LTR) -->
+  <!-- 🧭 Header -->
   <div id="header-placeholder"></div>
   <script>
     fetch("components/header.html")
@@ -83,8 +140,8 @@
       .catch(console.error);
   </script>
 
-  <!-- 🌟 Hero -->
   <main>
+    <!-- 🌟 Hero -->
     <section id="home" class="section hero">
       <h1>بساز، خودکار کن و آنلاین درآمد داشته باش</h1>
       <p>بیتا دیجیتال هاب به خالقان و کسب‌وکارها کمک می‌کند تا با داده، فضای ابری و هوش مصنوعی رشد کنند.</p>
@@ -99,7 +156,7 @@
     <!-- 💡 About -->
     <section id="about" class="section about light">
       <h2>به بیتا دیجیتال هاب خوش آمدید</h2>
-      <p>در بیتا دیجیتال هاب، به قدرت تکنولوژی برای ایجاد فرصت‌های جدید باور داریم. هدف ما ساده‌سازی مسیر موفقیت دیجیتال است — از استراتژی هوشمند تا اتوماسیون کامل سیستم‌ها.</p>
+      <p>در بیتا دیجیتال هاب، ما به قدرت تکنولوژی برای خلق فرصت‌های نو باور داریم. هدف ما ساده‌سازی مسیر موفقیت دیجیتال است — از استراتژی هوشمند تا اتوماسیون کامل سیستم‌ها.</p>
       <p>— بیتا عاشوری، بنیان‌گذار</p>
     </section>
 
@@ -114,43 +171,36 @@
           <h3>تولید رمز عبور</h3>
           <p>رمزهای قوی و امن برای حفاظت از حساب‌های دیجیتال شما.</p>
         </a>
-
         <a href="tools/file-converter.html" class="card gradient-pink">
           <div class="card-icon"><i data-lucide="file"></i></div>
           <h3>تبدیل فایل‌ها</h3>
           <p>تبدیل سریع فایل‌های PDF، Word و داده‌ای با یک کلیک.</p>
         </a>
-
         <a href="tools/csv-cleaner.html" class="card gradient-cyan">
           <div class="card-icon"><i data-lucide="table"></i></div>
           <h3>پاکسازی CSV</h3>
           <p>حذف داده‌های تکراری و آماده‌سازی فایل‌ها برای تحلیل.</p>
         </a>
-
         <a href="tools/zip-unzip.html" class="card gradient-gray">
           <div class="card-icon"><i data-lucide="archive"></i></div>
           <h3>فشرده‌سازی و استخراج فایل</h3>
           <p>ایجاد و باز کردن فایل‌های ZIP به‌صورت سریع و ایمن.</p>
         </a>
-
         <a href="tools/url-shortener.html" class="card gradient-green">
           <div class="card-icon"><i data-lucide="link-2"></i></div>
           <h3>کوتاه‌کننده لینک</h3>
           <p>مدیریت و رهگیری لینک‌ها برای بازاریابی و تحلیل داده.</p>
         </a>
-
         <a href="tools/qr-generator.html" class="card gradient-yellow">
           <div class="card-icon"><i data-lucide="qr-code"></i></div>
           <h3>تولید QR کد</h3>
           <p>ساخت QR اختصاصی برای وب‌سایت‌ها و محصولات در چند ثانیه.</p>
         </a>
-
         <a href="tools/audio-transcriber.html" class="card gradient-purple">
           <div class="card-icon"><i data-lucide="mic"></i></div>
           <h3>تبدیل صوت به متن</h3>
-          <p>تبدیل گفتار به متن و قابل ویرایش با هوش مصنوعی.</p>
+          <p>تبدیل گفتار به متن قابل ویرایش با هوش مصنوعی.</p>
         </a>
-
         <a href="tools/convert-to-mp3.html" class="card gradient-pink">
           <div class="card-icon">🎵</div>
           <h3>تبدیل ویدیو یا صدا به MP3</h3>
@@ -169,20 +219,17 @@
           <h3>دوره‌های رایگان</h3>
           <p>دوره‌های مقدماتی در زمینه داده، هوش مصنوعی و مارکتینگ دیجیتال.</p>
         </div>
-
         <div class="card gradient-blue">
           <div class="card-icon"><i data-lucide="megaphone"></i></div>
           <h3>استادی بازاریابی دیجیتال</h3>
           <p>یاد بگیرید برند خود را مؤثر و هوشمندانه توسعه دهید.</p>
         </div>
-
         <div class="card gradient-pink">
           <div class="card-icon"><i data-lucide="briefcase"></i></div>
           <h3>فرنچایز آنلاین</h3>
           <p>کسب‌وکار خود را با سیستم آماده اتوماسیون راه‌اندازی کنید.</p>
         </div>
       </div>
-
       <div class="cta-buttons">
         <a href="#contact" class="btn primary">درخواست مشاوره</a>
       </div>
@@ -198,20 +245,17 @@
           <h3>طراحی وب‌سایت</h3>
           <p>وب‌سایت‌های واکنش‌گرا، سریع و مدرن متناسب با برند شما.</p>
         </div>
-
         <div class="card gradient-yellow">
           <div class="card-icon"><i data-lucide="bar-chart-3"></i></div>
           <h3>داده و تحلیل</h3>
           <p>تبدیل داده‌های خام به بینش‌های کاربردی و گزارش‌های تحلیلی.</p>
         </div>
-
         <div class="card gradient-pink">
           <div class="card-icon"><i data-lucide="bot"></i></div>
           <h3>ربات‌های تلگرام</h3>
           <p>اتوماسیون گفتگو، جمع‌آوری مشتری و بازاریابی هوشمند.</p>
         </div>
       </div>
-
       <div class="cta-buttons">
         <a href="#contact" class="btn primary">درخواست مشاوره</a>
       </div>
@@ -221,7 +265,6 @@
     <section id="contact" class="section contact light">
       <h2>تماس با ما</h2>
       <p class="section-sub">با هم مسیر موفقیت دیجیتال شما را می‌سازیم</p>
-
       <form class="contact-form" action="https://formsubmit.co/contact@bitadigitalhub.com" method="POST">
         <div class="form-grid">
           <input type="text" name="name" placeholder="نام کامل *" required />
@@ -243,7 +286,7 @@
     </section>
   </main>
 
-  <!-- 🦶 Footer (LTR) -->
+  <!-- 🦶 Footer -->
   <div id="footer-placeholder"></div>
   <script>
     fetch("components/footer.html")
