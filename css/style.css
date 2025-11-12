@@ -396,6 +396,37 @@ a {
   max-width: 520px;
   width: 90%;
 }
+/* ---------- Fix tool layout alignment ---------- */
+.tool-layout {
+  display: grid;
+  grid-template-columns: 160px 1fr 160px; /* left ad, main tool, right ad */
+  align-items: start;
+  justify-content: center;
+  gap: 1rem;
+  padding: 3rem 1rem;
+  background: #f9fafb;
+}
+
+/* Center the tool card within the main column */
+.tool-center {
+  display: flex;
+  justify-content: center;
+}
+
+.tool-card {
+  max-width: 480px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* Hide side ads on smaller screens */
+@media (max-width: 1000px) {
+  .tool-layout {
+    grid-template-columns: 1fr;
+    padding: 2rem 1rem;
+  }
+}
+
 
 /* =========================================================
 🦶 FOOTER
