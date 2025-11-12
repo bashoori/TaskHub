@@ -26,19 +26,34 @@ Aligned brand, bilingual dropdown, and mobile menu
       <a href="contact.html#contact">Contact</a>
     </nav>
 
-  
+    <script>
+    document.addEventListener("DOMContentLoaded", () => {
+    const langBtn = document.getElementById("lang-btn");
+    const langMenu = document.getElementById("lang-menu");
+    const currentLang = document.documentElement.lang; // "en" or "fa"
 
+    // Toggle menu visibility
+    langBtn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      const expanded = langBtn.getAttribute("aria-expanded") === "true";
+      langBtn.setAttribute("aria-expanded", !expanded);
+      langMenu.classList.toggle("show");
+    });
 
-        <!-- 🌐 Language Switch -->
-    <div class="lang-switch">
-      <button class="lang-toggle" id="langToggle">
-        <span id="currentLang">English</span> 🇬🇧
-      </button>
-      <ul class="lang-menu" id="langMenu">
-        <li><a href="index.html">English 🇬🇧</a></li>
-        <li><a href="index-fa.html">فارسی 🇮🇷</a></li>
-      </ul>
-    </div>
+    // Close menu when clicking outside
+    document.addEventListener("click", () => {
+      langMenu.classList.remove("show");
+      langBtn.setAttribute("aria-expanded", "false");
+    });
+
+    // Detect current language and update button flag/text
+    if (currentLang === "fa") {
+      langBtn.innerHTML = `<img src="https://flagcdn.com/16x12/ir.png" alt="Persian flag" /> فارسی ▾`;
+    } else {
+      langBtn.innerHTML = `<img src="https://flagcdn.com/16x12/gb.png" alt="English flag" /> English ▾`;
+    }
+  });
+  </script>
 
 
     <!-- ☰ Mobile Menu Toggle -->
