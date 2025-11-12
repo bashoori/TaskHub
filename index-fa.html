@@ -34,6 +34,41 @@
       font-size: 1rem;
     }
 
+        /* ---------- SECTION SPACING CONTROL ---------- */
+    .section {
+      padding: 4rem 1rem;         /* reduce vertical padding */
+      margin: 0 auto;
+      max-width: 1200px;
+    }
+
+    .section.light {
+      background: #f9fafb;
+    }
+
+    .section + .section {
+      margin-top: 2rem;           /* tighten the space between sections */
+    }
+
+    h2 {
+      font-family: "Estedad", "Vazirmatn", sans-serif;
+      font-weight: 700;
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+      color: #0f172a;
+    }
+
+    .section-sub {
+      font-size: 1.1rem;
+      color: #475569;
+      margin-bottom: 1.5rem;
+    }
+
+    /* tighten padding for hero */
+    .hero {
+      padding: 5rem 1rem 4rem;    /* less vertical space than before */
+    }
+
+
     /* Keep header/footer LTR */
     #header-placeholder, #footer-placeholder {
       direction: ltr;
@@ -281,4 +316,6 @@
 
   <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 </body>
+
+
 </html>
