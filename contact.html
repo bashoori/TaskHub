@@ -344,9 +344,9 @@ form.addEventListener("submit", (e) => {
     `Full name: ${name}\nEmail: ${email}\n\nWhat do you want to track?\n${message}`
   );
 
-  window.open(`mailto:bitadigitalacademy@gmail.com?subject=${subject}&body=${body}`);
+  window.location.href = `mailto:bitadigitalacademy@gmail.com?subject=${subject}&body=${body}`;
 
-  status.textContent = "Message sent successfully ✔";
+  status.textContent = "Opening your email app...";
   form.reset();
 });
 </script>
