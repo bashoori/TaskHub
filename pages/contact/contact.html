@@ -34,6 +34,8 @@
       line-height:1.7;
     }
 
+    a { text-decoration:none; color:inherit; }
+
     .container {
       max-width:var(--max-width);
       margin:0 auto;
@@ -47,8 +49,12 @@
       margin-top:2.5rem;
     }
 
+    @media (max-width:900px) {
+      .grid { grid-template-columns:1fr; }
+    }
+
     .card {
-      background:var(--card);
+      background:#fff;
       border:1px solid var(--border);
       border-radius:var(--radius);
       padding:1.75rem;
@@ -59,6 +65,10 @@
       display:grid;
       grid-template-columns:1fr 1fr;
       gap:1rem;
+    }
+
+    @media (max-width:600px) {
+      .row { grid-template-columns:1fr; }
     }
 
     input, textarea {
@@ -80,6 +90,40 @@
       font-weight:800;
       cursor:pointer;
     }
+
+    .site-footer {
+      background:#fff;
+      border-top:1px solid var(--border);
+      margin-top:4rem;
+    }
+
+    .footer-inner {
+      max-width:var(--max-width);
+      margin:0 auto;
+      padding:2rem 1.25rem;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:1rem;
+      color:var(--muted);
+    }
+
+    .footer-brand {
+      display:inline-flex;
+      align-items:center;
+      gap:.5rem;
+      font-weight:800;
+      color:var(--text);
+    }
+
+    .footer-logo { width:28px; height:28px; }
+
+    @media (max-width:700px) {
+      .footer-inner {
+        flex-direction:column;
+        text-align:center;
+      }
+    }
   </style>
 </head>
 
@@ -95,7 +139,7 @@
     <div class="card">
       <h2>Send a request</h2>
 
-      <!-- ✅ FORM START -->
+      <!-- ✅ FORM -->
       <form action="https://formspree.io/f/xlgaqlkn">
 
         <input type="hidden" name="_subject" value="New request from Bita Digital Hub" />
@@ -124,7 +168,6 @@
         </div>
 
       </form>
-      <!-- ✅ FORM END -->
 
     </div>
 
@@ -133,13 +176,28 @@
       <ul>
         <li>We review your message</li>
         <li>We confirm required files</li>
-        <li>You get a clear delivery plan</li>
+        <li>You receive a clear delivery plan</li>
       </ul>
     </div>
 
   </div>
 
 </main>
+
+<!-- ✅ FOOTER -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <a href="/index.html" class="footer-brand">
+      <img src="/assets/icons/taskhub-logo.svg" alt="Bita Digital Hub logo" class="footer-logo" />
+      <span>Bita Digital Hub</span>
+    </a>
+
+    <p>
+      © Bita Digital Hub — Simple. Clear. Actionable.<br />
+      <a href="mailto:bitadigitalhub@gmail.com">bitadigitalhub@gmail.com</a>
+    </p>
+  </div>
+</footer>
 
 </body>
 </html>
