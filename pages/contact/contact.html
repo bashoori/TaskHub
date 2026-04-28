@@ -8,7 +8,7 @@
 
   <meta
     name="description"
-    content="-------------Contact Bita Digital Hub to start your weekly reporting workflow."
+    content="Contact Bita Digital Hub to start your weekly reporting workflow."
   />
 
   <style>
@@ -233,6 +233,8 @@
   </style>
 </head>
 
+
+  
 <body>
 
 <header class="site-header">
@@ -266,7 +268,7 @@
     <div class="card">
       <h2>Send a request</h2>
 
-      <form action="mailto:bitadigitalacademy@gmail.com" method="post" enctype="text/plain">
+      <form id="contact-form">
         <div class="row">
           <div>
             <label for="name">Full name</label>
@@ -325,6 +327,31 @@
   </div>
 </footer>
 
+  
+<script>
+const form = document.getElementById("contact-form");
+const status = document.getElementById("status");
+
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+
+  const name = document.getElementById("name").value;
+  const email = document.getElementById("email").value;
+  const message = document.getElementById("message").value;
+
+  const subject = encodeURIComponent("New request from Bita Digital Hub");
+  const body = encodeURIComponent(
+    `Full name: ${name}\nEmail: ${email}\n\nWhat do you want to track?\n${message}`
+  );
+
+  window.location.href = `mailto:bitadigitalacademy@gmail.com?subject=${subject}&body=${body}`;
+
+  status.textContent = "Opening your email app...";
+  form.reset();
+});
+</script>
+
+ 
 
 </body>
 </html>
