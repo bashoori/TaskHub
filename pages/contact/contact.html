@@ -34,12 +34,88 @@
       line-height:1.7;
     }
 
-    a { text-decoration:none; color:inherit; }
+    a { color:inherit; text-decoration:none; }
+
+    h1,h2,h3 {
+      margin:.4rem 0;
+      line-height:1.25;
+      letter-spacing:-0.02em;
+    }
+
+    p { margin:.5rem 0; color:var(--muted); }
 
     .container {
       max-width:var(--max-width);
       margin:0 auto;
       padding:3rem 1.25rem 4rem;
+    }
+
+    /* HEADER */
+
+    .site-header {
+      background:#fff;
+      border-bottom:1px solid var(--border);
+    }
+
+    .header-inner {
+      max-width:var(--max-width);
+      margin:0 auto;
+      padding:1.25rem;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:1rem;
+    }
+
+    .brand-link {
+      display:inline-flex;
+      align-items:center;
+      gap:.5rem;
+      font-weight:900;
+    }
+
+    .brand-logo { width:28px; height:28px; }
+
+    .site-nav {
+      display:flex;
+      gap:1.25rem;
+      flex-wrap:wrap;
+    }
+
+    .site-nav a {
+      font-weight:700;
+      color:var(--muted);
+    }
+
+    .site-nav a[aria-current="page"],
+    .site-nav a:hover {
+      color:var(--text);
+    }
+
+     .lang-btn {
+      padding:.35rem .6rem;
+      border-radius:10px;
+      background:var(--primary);
+      color:#fff;
+      font-weight:700;
+      font-size:.85rem;
+    }
+
+    @media (max-width:700px) {
+      .header-inner { flex-direction:column; }
+    }
+
+    /* CONTENT */
+
+    .kicker {
+      display:inline-block;
+      padding:.35rem .75rem;
+      border-radius:999px;
+      background:rgba(14,165,164,.1);
+      color:#0f766e;
+      font-weight:700;
+      font-size:.85rem;
+      margin-bottom:.75rem;
     }
 
     .grid {
@@ -54,7 +130,7 @@
     }
 
     .card {
-      background:#fff;
+      background:var(--card);
       border:1px solid var(--border);
       border-radius:var(--radius);
       padding:1.75rem;
@@ -71,12 +147,18 @@
       .row { grid-template-columns:1fr; }
     }
 
+    label {
+      font-weight:700;
+      font-size:.9rem;
+    }
+
     input, textarea {
       width:100%;
+      margin-top:.25rem;
       padding:.75rem;
       border-radius:10px;
       border:1px solid var(--border);
-      margin-top:.25rem;
+      font:inherit;
     }
 
     textarea { min-height:140px; }
@@ -84,12 +166,35 @@
     .btn {
       padding:.8rem 1.2rem;
       border-radius:12px;
-      border:none;
-      background:var(--primary);
-      color:#fff;
+      border:1px solid var(--border);
+      background:#fff;
       font-weight:800;
       cursor:pointer;
     }
+
+    .btn.primary {
+      background:var(--primary);
+      border-color:var(--primary);
+      color:#fff;
+    }
+
+    ul.list {
+      padding-left:1.1rem;
+      margin-top:.75rem;
+    }
+
+    ul.list li {
+      margin:.45rem 0;
+      color:var(--muted);
+    }
+
+    .status {
+      margin-top:1rem;
+      font-size:.9rem;
+      font-weight:600;
+    }
+
+    /* FOOTER */
 
     .site-footer {
       background:#fff;
@@ -105,6 +210,7 @@
       justify-content:space-between;
       align-items:center;
       gap:1rem;
+      font-size:.95rem;
       color:var(--muted);
     }
 
@@ -127,70 +233,98 @@
   </style>
 </head>
 
+
+  
 <body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a href="/index.html" class="brand-link">
+      <img src="/assets/icons/taskhub-logo.svg" alt="Bita Digital Hub logo" class="brand-logo" />
+      <span>Bita Digital Hub</span>
+    </a>
+
+    <nav class="site-nav">
+      <a href="/pages/landing/process.html">How it works</a>
+      <a href="/pages/landing/weekly-report.html">Weekly report</a>
+      <a href="/pages/about/about.html">About</a>
+      <a href="/pages/contact/contact.html" aria-current="page">Contact</a>
+      <a href="/index-fa.html" class="lang-btn">FA</a>
+    </nav>
+  </div>
+</header>
 
 <main class="container">
 
+  <span class="kicker">Contact</span>
   <h1>Start your weekly reporting workflow</h1>
-  <p>Tell us what you want to understand from your data.</p>
+  <p>
+    Tell us what you want to understand from your data.
+    If you’re not sure yet, send what you have.
+  </p>
 
   <div class="grid">
 
     <div class="card">
       <h2>Send a request</h2>
 
-      <!-- ✅ FORM -->
-      <form action="https://formspree.io/f/xlgaqlkn" method="POST">
 
-        <!-- Subject -->
-        <input type="hidden" name="_subject" value="New request from Bita Digital Hub" />
-      
-        <div class="row">
-          <div>
-            <label for="name">Full name</label>
-            <input id="name" name="name" required />
-          </div>
-      
-          <div>
-            <label for="email">Your email</label>
-            <input id="email" name="email" type="email" required />
-          </div>
-        </div>
-      
-        <div style="margin-top:1rem;">
-          <label for="message">What do you want to track?</label>
-          <textarea
-            id="message"
-            name="message"
-            placeholder="Weekly leads, trends, comparisons…"
-            required
-          ></textarea>
-        </div>
-      
-        <div style="margin-top:1.25rem;">
-          <button class="btn primary" type="submit">
-            Send message
-          </button>
-        </div>
-      
-      </form>
+      <form id="contact-form" action="https://formspree.io/f/xlgaqlkn" method="POST">
 
+      <input type="hidden" name="_subject" value="New request from Bita Digital Hub" />
+    
+      <div class="row">
+        <div>
+          <label for="name">Full name</label>
+          <input id="name" name="name" required />
+        </div>
+    
+        <div>
+          <label for="email">Your email</label>
+          <input id="email" name="email" type="email" required />
+        </div>
+      </div>
+    
+      <div style="margin-top:1rem;">
+        <label for="message">What do you want to track?</label>
+        <textarea
+          id="message"
+          name="message"
+          placeholder="Weekly leads, trends, comparisons…"
+          required
+        ></textarea>
+      </div>
+    
+      <div style="margin-top:1.25rem;">
+        <button id="submit-btn" class="btn primary" type="submit">
+          Send message
+        </button>
+      </div>
+    
+    </form>
+    <div id="success-message" class="status" style="display:none; color:green;">
+      Message sent successfully ✔
+    </div>
+      
+    <div id="error-message" class="status" style="display:none; color:red;">
+      Something went wrong. Please try again.
+    </div>
+      
     </div>
 
-    <div class="card">
+    <aside class="card">
       <h2>What happens next</h2>
-      <ul>
+      <ul class="list">
         <li>We review your message</li>
-        <li>We confirm required files</li>
+        <li>We confirm which files we need</li>
         <li>You receive a clear delivery plan</li>
       </ul>
-    </div>
+    </aside>
 
   </div>
 
 </main>
 
-<!-- ✅ FOOTER -->
 <footer class="site-footer">
   <div class="footer-inner">
     <a href="/index.html" class="footer-brand">
@@ -200,10 +334,53 @@
 
     <p>
       © Bita Digital Hub — Simple. Clear. Actionable.<br />
-      <a href="mailto:bitadigitalhub@gmail.com">bitadigitalhub@gmail.com</a>
+      <a href="mailto:contact@bitadigitalhub.com">contact@bitadigitalhub.com</a>
     </p>
   </div>
 </footer>
 
+<script>
+const form = document.getElementById("contact-form");
+const button = document.getElementById("submit-btn");
+const successMessage = document.getElementById("success-message");
+const errorMessage = document.getElementById("error-message");
+
+form.addEventListener("submit", async function (e) {
+  e.preventDefault();
+
+  successMessage.style.display = "none";
+  errorMessage.style.display = "none";
+
+  // loading state
+  const originalText = button.textContent;
+  button.textContent = "Sending...";
+  button.disabled = true;
+
+  const formData = new FormData(form);
+
+  try {
+    const response = await fetch(form.action, {
+      method: "POST",
+      body: formData,
+      headers: { Accept: "application/json" }
+    });
+
+    if (response.ok) {
+      successMessage.style.display = "block";
+      form.reset();
+    } else {
+      errorMessage.style.display = "block";
+    }
+  } catch (error) {
+    errorMessage.style.display = "block";
+  }
+
+  // restore button
+  button.textContent = originalText;
+  button.disabled = false;
+});
+</script>
+
+  
 </body>
 </html>
