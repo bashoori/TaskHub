@@ -282,7 +282,7 @@
       <div class="card">
         <h2>ارسال درخواست</h2>
 
-        <form action="https://formspree.io/f/xlgaqlkn">
+        <form id="contact-form" action="https://formspree.io/f/xlgaqlkn" method="POST">
           <div class="row">
             <div>
               <label for="name">نام شما</label>
@@ -305,7 +305,7 @@
           </div>
 
           <div style="margin-top:1.25rem;">
-            <button type="submit" class="btn primary">
+            <button id="submit-btn" type="submit" class="btn primary">
               ارسال پیام
             </button>
           </div>
@@ -317,6 +317,17 @@
            </a>
           </p>
         </form>
+        <input type="hidden" name="_subject" value="درخواست جدید از بیتا دیجیتال هاب" />
+
+        <div id="success-message" class="status" style="display:none; color:green;">
+        پیام با موفقیت ارسال شد ✔
+        </div>
+        
+        <div id="error-message" class="status" style="display:none; color:red;">
+          خطایی رخ داد، لطفاً دوباره تلاش کنید
+        </div>
+
+        
       </div>
 
       <aside class="card">
@@ -356,5 +367,46 @@
   </div>
 </footer>
 
+
+  <script>
+const form = document.getElementById("contact-form");
+const button = document.getElementById("submit-btn");
+const successMessage = document.getElementById("success-message");
+const errorMessage = document.getElementById("error-message");
+
+form.addEventListener("submit", async function (e) {
+  e.preventDefault();
+
+  successMessage.style.display = "none";
+  errorMessage.style.display = "none";
+
+  const originalText = button.textContent;
+  button.textContent = "در حال ارسال...";
+  button.disabled = true;
+
+  const formData = new FormData(form);
+
+  try {
+    const response = await fetch(form.action, {
+      method: "POST",
+      body: formData,
+      headers: { Accept: "application/json" }
+    });
+
+    if (response.ok) {
+      successMessage.style.display = "block";
+      form.reset();
+    } else {
+      errorMessage.style.display = "block";
+    }
+  } catch (error) {
+    errorMessage.style.display = "block";
+  }
+
+  button.textContent = originalText;
+  button.disabled = false;
+});
+</script>
+  
 </body>
 </html>
