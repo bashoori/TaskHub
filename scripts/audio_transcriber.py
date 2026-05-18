@@ -2,13 +2,14 @@
 
 # pip install openai-whisper ffmpeg-python
 
+
 import whisper
 
 model = whisper.load_model("base")
 audio_path = "onlinebiz.mp3"  # you’ll upload this file into the same folder
 
 print("Transcribing audio... please wait.")
-result = model.transcribe(audio_path, language='en')
+result = model.transcribe(audio_path, language='fa')
 
 with open("transcription.txt", "w", encoding="utf-8") as f:
     f.write(result["text"])
