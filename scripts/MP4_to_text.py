@@ -5,14 +5,14 @@ from pathlib import Path
 # PATHS
 # ==============================
 
-video_path = "input/mg1.mp4"
-output_file = "output/mg1.txt"
+video_path = "input/AI_effect.mp4"
+output_file = "output/AI_effect.txt"
 
 # ==============================
 # SETTINGS
 # ==============================
 
-language = "fa"       # fa = Persian | en = English
+language = "en"       # fa = Persian | en = English
 model_size = "base"   # tiny, base, small, medium, large
 
 # ==============================
