@@ -1,0 +1,7 @@
+pip install -r requirements.txt
+
+farsi:
+python scripts/MP3_to_text.py scripts/input/kimiaghar2.mp3 -o scripts/output --model small
+
+english:
+python scripts/MP3_to_text.py scripts/input/kimiaghar2.mp3 -o scripts/output --model base

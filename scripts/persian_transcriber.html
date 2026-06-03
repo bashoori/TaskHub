@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Persian Audio Transcriber</title>
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Vazirmatn', sans-serif;
+    background: #faf9f6;
+    color: #1a1a1a;
+    min-height: 100vh;
+    padding: 32px 16px;
+  }
+  .container { max-width: 720px; margin: 0 auto; }
+  .header { text-align: center; margin-bottom: 32px; }
+  .header h1 { font-size: 24px; font-weight: 700; margin-bottom: 6px; }
+  .header p { font-size: 14px; color: #666; }
+
+  .card {
+    background: #fff;
+    border: 1px solid #e8e4db;
+    border-radius: 12px;
+    padding: 24px;
+    margin-bottom: 16px;
+  }
+
+  .drop-zone {
+    border: 2px dashed #d4b483;
+    border-radius: 10px;
+    padding: 40px 20px;
+    text-align: center;
+    cursor: pointer;
+    transition: all .2s;
+    background: #fffdf7;
+  }
+  .drop-zone:hover, .drop-zone.drag { border-color: #8B6914; background: #fff8eb; }
+  .drop-zone .icon { font-size: 40px; margin-bottom: 10px; }
+  .drop-zone .label { font-size: 15px; font-weight: 500; margin-bottom: 4px; }
+  .drop-zone .hint { font-size: 12px; color: #999; }
+  input[type=file] { display: none; }
+
+  .model-select { margin-top: 16px; }
+  .model-select label { font-size: 13px; color: #555; display: block; margin-bottom: 6px; }
+  select {
+    width: 100%;
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-family: 'Vazirmatn', sans-serif;
+    font-size: 13px;
+    background: #fff;
+    color: #333;
+    cursor: pointer;
+  }
+
+  .status-card { padding: 16px; }
+  .status-row { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+  .status-dot {
+    width: 8px; height: 8px; border-radius: 50%;
+    background: #ccc; flex-shrink: 0;
+  }
+  .status-dot.active { background: #C8A96E; animation: pulse 1s infinite; }
+  .status-dot.done { background: #2d6a4f; }
+  .status-dot.error { background: #c0392b; }
+  @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.4} }
+  #statusText { font-size: 14px; color: #444; }
+
+  .progress-bar { height: 5px; background: #f0ebe0; border-radius: 3px; overflow: hidden; }
+  .progress-fill { height: 100%; background: linear-gradient(90deg, #C8A96E, #8B6914); border-radius: 3px; width: 0; transition: width .4s; }
+  .progress-label { font-size: 12px; color: #999; margin-top: 5px; text-align: left; direction: ltr; }
+
+  .btn { padding: 10px 22px; border-radius: 8px; font-size: 14px; font-family: 'Vazirmatn', sans-serif; cursor: pointer; font-weight: 500; border: none; transition: all .15s; }
+  .btn-primary { background: #8B6914; color: #fff; }
+  .btn-primary:hover { background: #6d5210; }
+  .btn-primary:disabled { background: #ccc; cursor: not-allowed; }
+  .btn-secondary { background: #f0ebe0; color: #555; border: 1px solid #ddd; }
+  .btn-secondary:hover { background: #e8e2d4; }
+  .btn-download { background: #2d6a4f; color: #fff; }
+  .btn-download:hover { background: #1e4a37; }
+  .btn-row { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 16px; }
+
+  .output-area {
+    display: none;
+    background: #fff;
+    border: 1px solid #e8e4db;
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 16px;
+  }
+  .output-area h3 { font-size: 14px; font-weight: 600; margin-bottom: 12px; color: #555; border-bottom: 1px solid #f0ebe0; padding-bottom: 8px; }
+  #transcriptBox {
+    font-size: 15px;
+    line-height: 2.2;
+    direction: rtl;
+    text-align: right;
+    white-space: pre-wrap;
+    color: #1a1a1a;
+    max-height: 450px;
+    overflow-y: auto;
+    font-family: 'Vazirmatn', sans-serif;
+  }
+
+  .info-box { background: #fff8eb; border: 1px solid #f0d9a0; border-radius: 8px; padding: 12px 14px; font-size: 13px; color: #7a5c00; margin-bottom: 16px; line-height: 1.7; }
+
+  .chunk-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(80px, 1fr)); gap: 6px; margin-top: 10px; }
+  .chunk-pill { padding: 4px 8px; border-radius: 20px; font-size: 11px; text-align: center; background: #f0ebe0; color: #888; }
+  .chunk-pill.done { background: #d4edda; color: #2d6a4f; }
+  .chunk-pill.active { background: #fff3cd; color: #856404; }
+  .chunk-pill.error { background: #f8d7da; color: #721c24; }
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="header">
+    <h1>🎙️ Persian Audio Transcriber</h1>
+    <p>Whisper AI — runs entirely in your browser, no data sent to any server</p>
+  </div>
+
+  <div class="info-box">
+    ℹ️ First use: the model downloads to your browser (~75MB for tiny, ~450MB for medium). After that it's cached and works offline. Best accuracy: use <strong>medium</strong> model for Persian.
+  </div>
+
+  <div class="card">
+    <div class="drop-zone" id="dropZone" onclick="document.getElementById('fileInput').click()">
+      <div class="icon">🎵</div>
+      <div class="label">فایل صوتی را اینجا بکشید یا کلیک کنید</div>
+      <div class="hint">MP3 · WAV · M4A · OGG · FLAC</div>
+    </div>
+    <input type="file" id="fileInput" accept="audio/*">
+
+    <div class="model-select">
+      <label>مدل Whisper:</label>
+      <select id="modelSelect">
+        <option value="Xenova/whisper-tiny">whisper-tiny (~75MB) — سریع‌تر، دقت کمتر</option>
+        <option value="Xenova/whisper-base">whisper-base (~140MB) — متوازن</option>
+        <option value="Xenova/whisper-small" selected>whisper-small (~460MB) — توصیه شده برای فارسی</option>
+        <option value="Xenova/whisper-medium">whisper-medium (~1.5GB) — بهترین دقت</option>
+      </select>
+    </div>
+
+    <div class="btn-row">
+      <button class="btn btn-primary" id="startBtn" disabled onclick="startTranscription()">▶ شروع رونویسی</button>
+      <button class="btn btn-secondary" onclick="resetAll()">↺ بازنشانی</button>
+    </div>
+  </div>
+
+  <div class="card status-card" id="statusCard" style="display:none">
+    <div class="status-row">
+      <div class="status-dot active" id="statusDot"></div>
+      <div id="statusText">در حال پردازش...</div>
+    </div>
+    <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+    <div class="progress-label" id="progressLabel">0%</div>
+    <div class="chunk-grid" id="chunkGrid"></div>
+  </div>
+
+  <div class="output-area" id="outputArea">
+    <h3>📄 متن رونویسی شده</h3>
+    <div id="transcriptBox"></div>
+    <div class="btn-row">
+      <button class="btn btn-download" onclick="downloadTxt()">⬇ دانلود .txt</button>
+      <button class="btn btn-secondary" onclick="copyText()">📋 کپی متن</button>
+    </div>
+  </div>
+</div>
+
+<script type="module">
+import { pipeline, env } from 'https://cdn.jsdelivr.net/npm/@huggingface/transformers@3.5.2/dist/transformers.min.js';
+
+env.allowLocalModels = false;
+
+let audioFile = null;
+let fullTranscript = '';
+let fileName = 'transcript';
+
+const dropZone = document.getElementById('dropZone');
+const fileInput = document.getElementById('fileInput');
+const startBtn = document.getElementById('startBtn');
+const statusCard = document.getElementById('statusCard');
+const statusDot = document.getElementById('statusDot');
+const statusText = document.getElementById('statusText');
+const progressFill = document.getElementById('progressFill');
+const progressLabel = document.getElementById('progressLabel');
+const outputArea = document.getElementById('outputArea');
+const transcriptBox = document.getElementById('transcriptBox');
+const chunkGrid = document.getElementById('chunkGrid');
+
+dropZone.addEventListener('dragover', e => { e.preventDefault(); dropZone.classList.add('drag'); });
+dropZone.addEventListener('dragleave', () => dropZone.classList.remove('drag'));
+dropZone.addEventListener('drop', e => { e.preventDefault(); dropZone.classList.remove('drag'); setFile(e.dataTransfer.files[0]); });
+fileInput.addEventListener('change', e => setFile(e.target.files[0]));
+
+function setFile(file) {
+  if (!file) return;
+  audioFile = file;
+  fileName = file.name.replace(/\.[^.]+$/, '');
+  dropZone.querySelector('.label').textContent = `✅ ${file.name} (${(file.size/1024/1024).toFixed(1)} MB)`;
+  dropZone.querySelector('.hint').textContent = 'کلیک کنید تا فایل دیگری انتخاب شود';
+  startBtn.disabled = false;
+}
+
+async function startTranscription() {
+  if (!audioFile) return;
+  startBtn.disabled = true;
+  statusCard.style.display = 'block';
+  outputArea.style.display = 'none';
+  fullTranscript = '';
+  transcriptBox.textContent = '';
+  chunkGrid.innerHTML = '';
+
+  const modelId = document.getElementById('modelSelect').value;
+
+  setStatus('active', `در حال بارگذاری مدل ${modelId.split('/')[1]}...`);
+  setProgress(0, 'بارگذاری مدل (اولین بار چند دقیقه طول می‌کشد)');
+
+  try {
+    const transcriber = await pipeline('automatic-speech-recognition', modelId, {
+      chunk_length_s: 30,
+      stride_length_s: 5,
+      progress_callback: (p) => {
+        if (p.status === 'downloading' && p.total) {
+          const pct = Math.round((p.loaded / p.total) * 100);
+          setProgress(pct * 0.3, `دانلود مدل: ${pct}% (${(p.loaded/1024/1024).toFixed(0)}MB / ${(p.total/1024/1024).toFixed(0)}MB)`);
+        }
+      }
+    });
+
+    setStatus('active', 'در حال خواندن فایل صوتی...');
+    setProgress(35, 'پردازش فایل صوتی');
+
+    const arrayBuffer = await audioFile.arrayBuffer();
+    const audioCtx = new AudioContext({ sampleRate: 16000 });
+    const audioBuffer = await audioCtx.decodeAudioData(arrayBuffer);
+    const float32 = audioBuffer.getChannelData(0);
+
+    setStatus('active', 'در حال رونویسی...');
+    setProgress(40, 'شروع رونویسی');
+
+    const result = await transcriber(float32, {
+      language: 'fa',
+      task: 'transcribe',
+      chunk_length_s: 30,
+      stride_length_s: 5,
+      return_timestamps: false,
+      progress_callback: (p) => {
+        if (p.status === 'update' && p.numChunks) {
+          const pct = 40 + Math.round((p.chunk / p.numChunks) * 58);
+          setProgress(pct, `بخش ${p.chunk} از ${p.numChunks}`);
+        }
+      }
+    });
+
+    fullTranscript = result.text || (Array.isArray(result) ? result.map(r => r.text).join(' ') : '');
+
+    setStatus('done', '✅ رونویسی کامل شد!');
+    setProgress(100, `${fullTranscript.length} کاراکتر`);
+    transcriptBox.textContent = fullTranscript;
+    outputArea.style.display = 'block';
+    startBtn.disabled = false;
+
+  } catch (e) {
+    setStatus('error', `خطا: ${e.message}`);
+    console.error(e);
+    startBtn.disabled = false;
+  }
+}
+
+function setStatus(state, msg) {
+  statusDot.className = `status-dot ${state}`;
+  statusText.textContent = msg;
+}
+
+function setProgress(pct, label) {
+  progressFill.style.width = pct + '%';
+  progressLabel.textContent = `${Math.round(pct)}% — ${label}`;
+}
+
+function resetAll() {
+  audioFile = null;
+  fileInput.value = '';
+  dropZone.querySelector('.label').textContent = 'فایل صوتی را اینجا بکشید یا کلیک کنید';
+  dropZone.querySelector('.hint').textContent = 'MP3 · WAV · M4A · OGG · FLAC';
+  startBtn.disabled = true;
+  statusCard.style.display = 'none';
+  outputArea.style.display = 'none';
+  transcriptBox.textContent = '';
+  fullTranscript = '';
+}
+
+window.startTranscription = startTranscription;
+window.resetAll = resetAll;
+window.downloadTxt = function() {
+  const blob = new Blob([fullTranscript], { type: 'text/plain;charset=utf-8' });
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = fileName + '_farsi.txt';
+  a.click();
+};
+window.copyText = function() {
+  navigator.clipboard.writeText(fullTranscript).then(() => {
+    const btn = event.target;
+    btn.textContent = '✅ کپی شد';
+    setTimeout(() => btn.textContent = '📋 کپی متن', 2000);
+  });
+};
+</script>
+</body>
+</html>
